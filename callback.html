@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Callback - PlateAI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-color: #35395C;
+            --secondary-color: #21AC78;
+            --accent-color: #FAD11E;
+            --dark-color: #21192E;
+            --light-color: #EAEAEA;
+            --success-color: #21AC78;
+            --warning-color: #ADD07F;
+            --danger-color: #F44336;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f8f9fa;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Main content */
+        .main-content {
+            margin-top: 80px;
+            padding: 3rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .callback-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .callback-header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .callback-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .callback-header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .callback-body {
+            padding: 2rem;
+        }
+
+        .callback-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .callback-form .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .callback-form .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--light-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .callback-form .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(33, 172, 120, 0.1);
+        }
+
+        .callback-form select.form-control {
+            cursor: pointer;
+        }
+
+        .callback-form textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn {
+            border-radius: 8px;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .callback-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .callback-alternative {
+            border-top: 1px solid var(--light-color);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        .whatsapp-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .whatsapp-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .callback-container {
+                margin: 1rem;
+                max-width: none;
+            }
+            
+            .callback-header {
+                padding: 1.5rem;
+            }
+            
+            .callback-body {
+                padding: 1.5rem;
+            }
+            
+            .callback-actions {
+                flex-direction: column;
+            }
+            
+            .callback-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">PlateAI</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="callback-container">
+                <div class="callback-header">
+                    <h1>Request a Callback</h1>
+                    <p>Our nutrition specialists will call you within 24 hours to discuss your personalized meal planning needs.</p>
+                </div>
+                
+                <div class="callback-body">
+                    <!-- Callback Form -->
+                    <form id="callbackForm" class="callback-form">
+                        <div class="form-group">
+                            <label for="callback-name" class="form-label">Your Name</label>
+                            <input type="text" id="callback-name" class="form-control" 
+                                placeholder="How should we call you?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="callback-phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="callback-phone" class="form-control" 
+                                placeholder="+255 XXX XXX XXX" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="callback-type" class="form-label">I'm interested in</label>
+                            <select id="callback-type" class="form-control" required>
+                                <option value="">Choose consultation type</option>
+                                <option value="Nutrition Consultation">Nutrition Consultation</option>
+                                <option value="Meal Planning Help">Meal Planning Help</option>
+                                <option value="Health Condition Support">Health Condition Support</option>
+                                <option value="Product Demo">Product Demo & Questions</option>
+                                <option value="Partnership Inquiry">Partnership Inquiry</option>
+                                <option value="General Information">General Information</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="callback-time" class="form-label">Preferred Call Time</label>
+                            <select id="callback-time" class="form-control">
+                                <option value="">Any time is fine</option>
+                                <option value="Morning (9AM - 12PM)">Morning (9AM - 12PM)</option>
+                                <option value="Afternoon (12PM - 5PM)">Afternoon (12PM - 5PM)</option>
+                                <option value="Evening (5PM - 8PM)">Evening (5PM - 8PM)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="callback-message" class="form-label">Additional Information (Optional)</label>
+                            <textarea id="callback-message" class="form-control" rows="3" 
+                                    placeholder="Tell us about your specific needs, health goals, or any questions..."></textarea>
+                        </div>
+                        
+                        <div class="callback-actions">
+                            <a href="index.html" class="btn btn-secondary">
+                                Back to Home
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-phone-alt"></i>
+                                Request Callback
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Alternative Contact -->
+                    <div class="callback-alternative">
+                        <p>
+                            <strong>Need immediate help?</strong><br>
+                            <span style="display: block; margin: 0.5rem 0;">
+                                <strong>General & Nutrition:</strong> 
+                                <a href="https://wa.me/255763129056?text=Hi%20PlateAI%2C%20I%27d%20like%20to%20learn%20more%20about%20personalized%20meal%20planning." 
+                                target="_blank" class="whatsapp-link">
+                                    <i class="fab fa-whatsapp"></i> +255 763 129 056
+                                </a>
+                            </span>
+                            <span style="display: block; margin: 0.5rem 0;">
+                                <strong>Partnerships:</strong>
+                                <a href="https://wa.me/255622387189?text=Hi%20PlateAI%2C%20I%27m%20interested%20in%20partnership%20opportunities." 
+                                target="_blank" class="whatsapp-link">
+                                    <i class="fab fa-whatsapp"></i> +255 622 387 189
+                                </a>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 PlateAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Handle callback form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const callbackForm = document.getElementById('callbackForm');
+            
+            if (callbackForm) {
+                callbackForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('callback-name').value;
+                    const phone = document.getElementById('callback-phone').value;
+                    const type = document.getElementById('callback-type').value;
+                    const time = document.getElementById('callback-time').value;
+                    const message = document.getElementById('callback-message').value;
+                    
+                    // Route to appropriate WhatsApp number based on inquiry type
+                    const whatsappRouting = {
+                        'Partnership Inquiry': '255622387189',
+                        'Nutrition Consultation': '255763129056',
+                        'Meal Planning Help': '255763129056',
+                        'Health Condition Support': '255763129056',
+                        'Product Demo': '255763129056',
+                        'General Information': '255763129056'
+                    };
+                    
+                    const targetNumber = whatsappRouting[type] || '255763129056';
+                    
+                    // Construct WhatsApp message
+                    let whatsappMessage = `Hello PlateAI! 
+
+I'd like to request a callback:
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+🎯 Interest: ${type}`;
+                    
+                    if (time) {
+                        whatsappMessage += `\n⏰ Preferred time: ${time}`;
+                    }
+                    
+                    if (message.trim()) {
+                        whatsappMessage += `\n💬 Additional info: ${message}`;
+                    }
+                    
+                    // Customize closing message based on inquiry type
+                    if (type === 'Partnership Inquiry') {
+                        whatsappMessage += `\n\nI'm interested in partnering with PlateAI. Please call me to discuss opportunities. Thank you!`;
+                    } else {
+                        whatsappMessage += `\n\nPlease call me to discuss personalized meal planning. Thank you!`;
+                    }
+                    
+                    // Open WhatsApp with pre-filled message
+                    const encodedMessage = encodeURIComponent(whatsappMessage);
+                    const whatsappURL = `https://wa.me/${targetNumber}?text=${encodedMessage}`;
+                    
+                    // Open WhatsApp in new tab
+                    window.open(whatsappURL, '_blank');
+                    
+                    // Show success message
+                    showSuccessMessage();
+                });
+            }
+        });
+
+        // Show success message after form submission
+        function showSuccessMessage() {
+            // Create success message container
+            const successMessage = document.createElement('div');
+            successMessage.style.position = 'fixed';
+            successMessage.style.top = '20px';
+            successMessage.style.left = '50%';
+            successMessage.style.transform = 'translateX(-50%)';
+            successMessage.style.backgroundColor = 'var(--secondary-color)';
+            successMessage.style.color = 'white';
+            successMessage.style.padding = '1rem 2rem';
+            successMessage.style.borderRadius = '8px';
+            successMessage.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+            successMessage.style.zIndex = '3000';
+            successMessage.style.textAlign = 'center';
+            successMessage.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">
+                    <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+                    <strong>Callback Request Sent!</strong>
+                </div>
+                <div style="font-size: 0.9rem; opacity: 0.9;">
+                    Our team will contact you within 24 hours.
+                </div>
+            `;
+            
+            // Add to document
+            document.body.appendChild(successMessage);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                successMessage.remove();
+                
+                // Redirect to home page after showing success message
+                window.location.href = 'index.html';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
