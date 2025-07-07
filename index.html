@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlateAI - Personalized Nutrition for Tanzania</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-color: #35395C;
+            --secondary-color: #21AC78;
+            --accent-color: #FAD11E;
+            --dark-color: #21192E;
+            --light-color: #EAEAEA;
+            --success-color: #21AC78;
+            --warning-color: #ADD07F;
+            --danger-color: #F44336;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Buttons */
+        .btn {
+            border-radius: 25px;
+            font-weight: 600;
+            padding: 0.7rem 2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-warning {
+            background: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-warning:hover {
+            background: var(--warning-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline-warning {
+            border: 2px solid var(--warning-color);
+            color: var(--warning-color);
+            background: transparent;
+        }
+        
+        .btn-outline-warning:hover {
+            background: var(--warning-color);
+            color: var(--primary-color);
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            display: flex;
+            background: var(--light-color);
+            border-radius: 20px;
+            padding: 2px;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--dark-color);
+            color: white;
+            padding: 6rem 0 4rem;
+            position: relative;
+        }
+
+        .hero-row {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .hero-icon-fallback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            border: 2px dashed rgba(255,255,255,0.3);
+            color: var(--accent-color);
+        }
+
+        .hero-icon-fallback p {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Health Info Section */
+        .health-info {
+            background: linear-gradient(180deg, var(--dark-color) 50%, var(--light-color) 50%);
+            padding: 4rem 0;
+            margin: 0;
+        }
+
+        .health-content {
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .health-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .condition-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .condition-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .condition-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .condition-item p {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .health-subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+
+        /* Teaser Section */
+        .teaser {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--light-color) 100%);
+        }
+
+        .teaser-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .teaser h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .teaser-subtitle {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            font-weight: 600;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .step p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Nutritionist Portal Section */
+        .nutritionist-portal {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .portal-hero {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .portal-text {
+            flex: 1;
+        }
+
+        .portal-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .portal-description {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .portal-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .portal-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .benefit-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .benefit-card p {
+            color: #6c757d;
+            line-height: 1.5;
+        }
+
+        /* Restaurant Section */
+        .restaurant-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa, var(--light-color));
+        }
+
+        .restaurant-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .restaurant-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .restaurant-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .restaurant-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .restaurant-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .restaurant-card p {
+            color: #6c757d;
+            line-height: 1.5;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .video-container {
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .video-embed {
+            max-width: 100%;
+            width: 560px;
+            height: 315px;
+            border-radius: 12px;
+            margin: 1rem auto;
+        }
+
+        .video-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .video-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .video-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: var(--accent-color);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--dark-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            color: var(--dark-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Hamburger Menu for Mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .language-toggle {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+
+            .hero-row {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-btn {
+                min-width: 250px;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .health-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .conditions-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portal-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .teaser h2,
+            .portal-title,
+            .how-it-works h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .conditions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .condition-item {
+                padding: 1rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .health-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">PlateAI</a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#nutritionist" class="nav-link">For Nutritionist</a></li>
+                <li><a href="#" class="nav-link" onclick="alert('Coming Soon: lishe.plateai.app')">For Kids</a></li>
+                <li><a href="https://msosi.plateai.app" class="nav-link" target="_blank" rel="noopener">Planned Meals</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                
+                <li>
+                    <div class="language-toggle">
+                        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                        <button class="lang-btn" onclick="setLanguage('sw')">SW</button>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-row">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Personalized meals made easy.</h1>
+                        <p class="hero-description">PlateAI advises what to eat based on your body's needs, using foods available locally in Tanzania.</p>
+                        <div class="hero-buttons">
+                            <a href="https://plateai.app/onboard" class="btn btn-warning hero-btn">
+                                Get Started
+                            </a>
+                            <button class="btn btn-outline-warning hero-btn" onclick="requestCallback()">
+                                Request Callback
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/hero.png" alt="PlateAI Hero Image" class="hero-img" 
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hero-icon-fallback" style="display: none;">
+                            <i class="fas fa-utensils" style="font-size: 4rem;"></i>
+                            <p>🍽️ Personalized Nutrition</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Info Section -->
+        <section class="health-info">
+            <div class="container">
+                <div class="health-content">
+                    <h2 class="health-title">PlateAI helps in managing</h2>
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <i class="fas fa-syringe condition-icon"></i>
+                            <p>Diabetes</p>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-heart condition-icon"></i>
+                            <p>Hypertension</p>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-weight condition-icon"></i>
+                            <p>Obesity</p>
+                        </div>
+                        <div class="condition-item">
+                            <i class="fas fa-procedures condition-icon"></i>
+                            <p>Chronic Kidney Disease</p>
+                        </div>
+                    </div>
+                    <p class="health-subtitle">and prevent many more before they start</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaser Section -->
+        <section class="teaser">
+            <div class="container">
+                <div class="teaser-content">
+                    <h2>Find Balance With Flexibility</h2>
+                    <p class="teaser-subtitle">Meet your dietary needs with our meal plans/package measured to suit your need and fit your preferences. We'll recommend food from 300+ meals easily available.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fa fa-utensils"></i>
+                            </div>
+                            <h3>Personalized Plans</h3>
+                            <p>Get meal plans tailored to your body's needs, preferences, and local food availability.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fa fa-leaf"></i>
+                            </div>
+                            <h3>Local Ingredients</h3>
+                            <p>Meals designed with locally available ingredients that you can easily find and afford.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h3>Expert Support</h3>
+                            <p>Access to qualified nutritionists for personalized advice and meal adjustments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2>How it works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <i class="fa fa-check-circle step-icon"></i>
+                        <h3>Select preferred foods</h3>
+                        <p>Tell us about your food preferences, allergies, and dietary needs through our simple questionnaire.</p>
+                    </div>
+                    <div class="step">
+                        <i class="fa fa-brain step-icon"></i>
+                        <h3>Get personalized plan</h3>
+                        <p>Our AI creates a custom meal plan based on your body's needs and local food availability.</p>
+                    </div>
+                    <div class="step">
+                        <i class="fa fa-shopping-cart step-icon"></i>
+                        <h3>Order planned meals</h3>
+                        <p>Export your meal plan to MsosiHub for easy ordering with exact measurements and portions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutritionist Portal Section -->
+        <section id="nutritionist" class="nutritionist-portal">
+            <div class="container">
+                <div class="portal-hero">
+                    <div class="portal-text">
+                        <h2 class="portal-title">Empower Your Practice with Technology</h2>
+                        <p class="portal-description">Join our network of qualified nutritionists and leverage technology to better serve your clients. Monitor adherence, provide timely feedback, and expand your reach through our integrated platform.</p>
+                        <a href="#contact" class="btn btn-primary">Join Our Network</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/hero.png" alt="PlateAI Hero Image" class="hero-img" 
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hero-icon-fallback" style="display: none;">
+                            <i class="fas fa-utensils" style="font-size: 4rem;"></i>
+                            <p>🍽️ Personalized Nutrition</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portal-benefits">
+                    <div class="benefit-card">
+                        <h4>
+                            <i class="fas fa-users"></i>
+                            Client Management Made Easy
+                        </h4>
+                        <p>Manage all your clients in one platform. Create profiles, track progress, and monitor meal plan adherence with real-time data.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>
+                            <i class="fas fa-mobile-alt"></i>
+                            WhatsApp Integration
+                        </h4>
+                        <p>Clients receive meal reminders and can log their food directly via WhatsApp. Review their submissions and provide feedback instantly.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>
+                            <i class="fas fa-chart-line"></i>
+                            Data-Driven Insights
+                        </h4>
+                        <p>Access detailed analytics on client adherence, progress tracking, and outcome measurements to make informed decisions.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>
+                            <i class="fas fa-network-wired"></i>
+                            Expand Your Reach
+                        </h4>
+                        <p>Connect with clients across Tanzania through our platform. Offer remote consultations and build a larger practice.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Restaurant Section -->
+        <section class="restaurant-section">
+            <div class="container">
+                <h2>For Restaurants - Healthy Food as a Service</h2>
+                <p class="restaurant-subtitle">Join our network of food vendors in Dar es Salaam and tap into the growing healthy food market.</p>
+                
+                <div class="restaurant-benefits">
+                    <div class="restaurant-card">
+                        <h4>No Entry Barriers</h4>
+                        <p>You don't need specific culinary training. Our guidebooks and tools will allow you to prepare healthy foods using easily available local ingredients and serve exactly as per user needs with our kitchen equipment and guides.</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h4>Maximize Your Reach</h4>
+                        <p>Tap into new market opportunities by serving health-conscious customers. Expand your customer base and increase revenue through our platform.</p>
+                    </div>
+                    <div class="restaurant-card">
+                        <h4>Dar es Salaam Network</h4>
+                        <p>Currently accepting food vendors in Dar es Salaam only. Be part of our growing network of trained and equipped vendors committed to healthy eating.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <h2>About PlateAI</h2>
+                    <p class="about-text">
+                        We are committed to creating a healthy eating ecosystem - empowering Tanzanians to eat healthily through simplified personalized meal plans and easily accessible, affordable planned meals. Leveraging a network of food vendors (trained and equipped in Dar es Salaam), we are committed to expanding our impact to the entire country.
+                    </p>
+                    <p class="about-text">
+                        At PlateAI, we understand the challenges because we have experienced at some point our relatives and close people facing diet-related issues. This personal connection drives our mission to make healthy eating accessible to everyone.
+                    </p>
+                    
+                    <div class="video-container">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Our Story</h3>
+                        <iframe 
+                            class="video-embed"
+                            src="https://www.youtube.com/embed/fJEBAgG0uIU" 
+                            title="Breaking the Wall of Unhealthy Eating Habits - Falling Walls 2023"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                        <div class="video-links">
+                            <a href="https://youtu.be/fJEBAgG0uIU" target="_blank" class="video-link">
+                                <i class="fab fa-youtube"></i> Watch on YouTube
+                            </a>
+                            <a href="https://apply.falling-walls.com/discover/videos/breaking-the-wall-of-unhealthy-eating-habits/" target="_blank" class="video-link">
+                                <i class="fas fa-external-link-alt"></i> Falling Walls Feature
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to start your nutrition journey?</h2>
+                <p>Join thousands of users who've transformed their eating habits with PlateAI</p>
+                <a href="https://plateai.app/onboard" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Get Started Today</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PlateAI</h4>
+                    <p>Personalized nutrition made simple with locally available foods in Tanzania. Join thousands of users transforming their eating habits.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/255763129056" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/plateai.app/" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/plateai255" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="https://plateai.app/onboard">Get Started</a>
+                    <a href="https://msosi.plateai.app" target="_blank" rel="noopener">Order Meals</a>
+                    <a href="#nutritionist">For Nutritionists</a>
+                    <a href="#about">About Us</a>
+                </div>
+                <div class="footer-section">
+                    <h4>For Professionals</h4>
+                    <a href="#nutritionist">Nutritionist Portal</a>
+                    <a href="#" onclick="alert('Coming Soon: lishe.plateai.app')">For Kids</a>
+                    <a href="#contact">Partner With Us</a>
+                    <a href="#contact">Become a Nutritionist</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact & Support</h4>
+                    <p><strong>Office:</strong> Dar es Salaam, Tanzania</p>
+                    <p><strong>Phone:</strong> <a href="tel:+255763129056">+255 763 129 056</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:aiplate.tz@gmail.com">aiplate.tz@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PlateAI. All rights reserved. </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Language toggle
+        function setLanguage(lang) {
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Store in localStorage
+            localStorage.setItem('preferred_language', lang);
+        }
+
+        // Load preferred language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const preferredLang = localStorage.getItem('preferred_language') || 'en';
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === preferredLang) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Request callback function
+        function requestCallback() {
+            alert('Thank you for your interest! A nutrition specialist will call you within 24 hours. For immediate assistance, please WhatsApp us at +255 763 129 056');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const navMenu = document.getElementById('nav-menu');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = '#fff';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.feature-card, .benefit-card, .restaurant-card, .step');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
