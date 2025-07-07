@@ -695,6 +695,204 @@
             transition: 0.3s;
         }
 
+        /* Callback Modal Styles */
+        .callback-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .callback-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .callback-content {
+            position: relative;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .callback-header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .callback-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .callback-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .callback-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .callback-body {
+            padding: 2rem;
+        }
+
+        .callback-subtitle {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .callback-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .callback-form .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .callback-form .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--light-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .callback-form .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(33, 172, 120, 0.1);
+        }
+
+        .callback-form select.form-control {
+            cursor: pointer;
+        }
+
+        .callback-form textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .callback-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+
+        .callback-actions .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .callback-actions .btn-secondary {
+            background: var(--light-color);
+            color: var(--dark-color);
+            border: none;
+        }
+
+        .callback-actions .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .callback-actions .btn-primary {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+        }
+
+        .callback-actions .btn-primary:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .callback-alternative {
+            border-top: 1px solid var(--light-color);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        .whatsapp-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .whatsapp-link:hover {
+            color: var(--primary-color);
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-menu {
@@ -788,6 +986,28 @@
             }
 
             .footer-social {
+                justify-content: center;
+            }
+
+            .callback-content {
+                margin: 1rem;
+                max-width: none;
+            }
+            
+            .callback-header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .callback-body {
+                padding: 1.5rem;
+            }
+            
+            .callback-actions {
+                flex-direction: column;
+            }
+            
+            .callback-actions .btn {
+                width: 100%;
                 justify-content: center;
             }
         }
@@ -1124,6 +1344,98 @@
         </div>
     </footer>
 
+    <!-- Callback Modal -->
+    <div id="callbackModal" class="callback-modal" style="display: none;">
+        <div class="callback-overlay" onclick="closeCallbackModal()"></div>
+        <div class="callback-content">
+            <div class="callback-header">
+                <h3>Request a Callback</h3>
+                <button class="callback-close" onclick="closeCallbackModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="callback-body">
+                <p class="callback-subtitle">Our nutrition specialists will call you within 24 hours to discuss your personalized meal planning needs.</p>
+                
+                <!-- Callback Form -->
+                <form id="callbackForm" class="callback-form">
+                    <div class="form-group">
+                        <label for="callback-name" class="form-label">Your Name</label>
+                        <input type="text" id="callback-name" class="form-control" 
+                            placeholder="How should we call you?" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="callback-phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="callback-phone" class="form-control" 
+                            placeholder="+255 XXX XXX XXX" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="callback-type" class="form-label">I'm interested in</label>
+                        <select id="callback-type" class="form-control" required>
+                            <option value="">Choose consultation type</option>
+                            <option value="Nutrition Consultation">Nutrition Consultation</option>
+                            <option value="Meal Planning Help">Meal Planning Help</option>
+                            <option value="Health Condition Support">Health Condition Support</option>
+                            <option value="Product Demo">Product Demo & Questions</option>
+                            <option value="Partnership Inquiry">Partnership Inquiry</option>
+                            <option value="General Information">General Information</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="callback-time" class="form-label">Preferred Call Time</label>
+                        <select id="callback-time" class="form-control">
+                            <option value="">Any time is fine</option>
+                            <option value="Morning (9AM - 12PM)">Morning (9AM - 12PM)</option>
+                            <option value="Afternoon (12PM - 5PM)">Afternoon (12PM - 5PM)</option>
+                            <option value="Evening (5PM - 8PM)">Evening (5PM - 8PM)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="callback-message" class="form-label">Additional Information (Optional)</label>
+                        <textarea id="callback-message" class="form-control" rows="3" 
+                                placeholder="Tell us about your specific needs, health goals, or any questions..."></textarea>
+                    </div>
+                    
+                    <div class="callback-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeCallbackModal()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-phone-alt"></i>
+                            Request Callback
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Alternative Contact -->
+                <div class="callback-alternative">
+                    <p class="text-center">
+                        <strong>Need immediate help?</strong><br>
+                        <span style="display: block; margin: 0.5rem 0;">
+                            <strong>General & Nutrition:</strong> 
+                            <a href="https://wa.me/255763129056?text=Hi%20PlateAI%2C%20I%27d%20like%20to%20learn%20more%20about%20personalized%20meal%20planning." 
+                            target="_blank" class="whatsapp-link">
+                                <i class="fab fa-whatsapp"></i> +255 763 129 056
+                            </a>
+                        </span>
+                        <span style="display: block; margin: 0.5rem 0;">
+                            <strong>Partnerships:</strong>
+                            <a href="https://wa.me/255622387189?text=Hi%20PlateAI%2C%20I%27m%20interested%20in%20partnership%20opportunities." 
+                            target="_blank" class="whatsapp-link">
+                                <i class="fab fa-whatsapp"></i> +255 622 387 189
+                            </a>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Mobile menu toggle
         function toggleMenu() {
@@ -1162,11 +1474,6 @@
                 navMenu.classList.remove('active');
             }
         });
-
-        // Request callback function
-        function requestCallback() {
-            alert('Thank you for your interest! A nutrition specialist will call you within 24 hours. For immediate assistance, please WhatsApp us at +255 763 129 056');
-        }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1226,6 +1533,142 @@
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(el);
             });
+        });
+
+        // Callback Modal Functions
+        function requestCallback() {
+            document.getElementById('callbackModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCallbackModal() {
+            document.getElementById('callbackModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Handle callback form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const callbackForm = document.getElementById('callbackForm');
+            
+            if (callbackForm) {
+                callbackForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('callback-name').value;
+                    const phone = document.getElementById('callback-phone').value;
+                    const type = document.getElementById('callback-type').value;
+                    const time = document.getElementById('callback-time').value;
+                    const message = document.getElementById('callback-message').value;
+                    
+                    // Route to appropriate WhatsApp number based on inquiry type
+                    const whatsappRouting = {
+                        'Partnership Inquiry': '255622387189',
+                        'Nutrition Consultation': '255763129056',
+                        'Meal Planning Help': '255763129056',
+                        'Health Condition Support': '255763129056',
+                        'Product Demo': '255763129056',
+                        'General Information': '255763129056'
+                    };
+                    
+                    const targetNumber = whatsappRouting[type] || '255763129056';
+                    
+                    // Construct WhatsApp message
+                    let whatsappMessage = `Hello PlateAI! 
+
+I'd like to request a callback:
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+🎯 Interest: ${type}`;
+                    
+                    if (time) {
+                        whatsappMessage += `\n⏰ Preferred time: ${time}`;
+                    }
+                    
+                    if (message.trim()) {
+                        whatsappMessage += `\n💬 Additional info: ${message}`;
+                    }
+                    
+                    // Customize closing message based on inquiry type
+                    if (type === 'Partnership Inquiry') {
+                        whatsappMessage += `\n\nI'm interested in partnering with PlateAI. Please call me to discuss opportunities. Thank you!`;
+                    } else {
+                        whatsappMessage += `\n\nPlease call me to discuss personalized meal planning. Thank you!`;
+                    }
+                    
+                    // Open WhatsApp with pre-filled message
+                    const encodedMessage = encodeURIComponent(whatsappMessage);
+                    const whatsappURL = `https://wa.me/${targetNumber}?text=${encodedMessage}`;
+                    
+                    // Open WhatsApp in new tab
+                    window.open(whatsappURL, '_blank');
+                    
+                    // Close modal and show success message
+                    closeCallbackModal();
+                    
+                    // Show success notification with appropriate contact info
+                    showSuccessNotification(type, targetNumber);
+                });
+            }
+        });
+
+        // Show success notification
+        function showSuccessNotification(inquiryType, phoneNumber) {
+            // Format phone number for display
+            const displayNumber = phoneNumber === '255622387189' ? '+255 622 387 189' : '+255 763 129 056';
+            const department = phoneNumber === '255622387189' ? 'partnerships team' : 'nutrition team';
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--secondary-color);
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 8px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    z-index: 3000;
+                    animation: slideInRight 0.3s ease-out;
+                    max-width: 350px;
+                ">
+                    <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                        <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+                        <strong>Callback Request Sent!</strong>
+                    </div>
+                    <div style="font-size: 0.9rem; opacity: 0.9;">
+                        Our ${department} will contact you at ${displayNumber} within 24 hours.
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('callbackModal');
+            const modalContent = document.querySelector('.callback-content');
+            
+            if (modal && modal.style.display === 'flex') {
+                if (!modalContent.contains(event.target)) {
+                    closeCallbackModal();
+                }
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeCallbackModal();
+            }
         });
     </script>
 </body>
