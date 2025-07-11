@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request a Callback - PlateAI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/translations.js"></script>
     
     <style>
         :root {
@@ -26,10 +28,26 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--dark-color);
-            background-color: #f8f9fa;
+            background-color: #fff;
+        }
+
+        /* Headings use Dongle */
+        h1, h2, h3, h4, h5, h6, .hero-title, .portal-title, .health-title, .feature-card h3,
+        .teaser h2, .how-it-works h2, .restaurant-section h2, .restaurant-card h4,
+        .about-section h2, .cta-section h2, .footer-section h4 {
+            font-family: 'Dongle', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.1;
+        }
+
+        ::selection {
+            background: var(--accent-color);
+            color: var(--dark-color); /* Optional: ensures text is readable */
         }
 
         /* Navigation */
@@ -47,7 +65,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 20px;
+            padding: 2rem 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -57,6 +75,29 @@
             font-weight: bold;
             color: var(--primary-color);
             text-decoration: none;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            display: flex;
+            background: var(--light-color);
+            border-radius: 20px;
+            padding: 2px;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--secondary-color);
+            color: white;
         }
 
         .nav-menu {
@@ -99,11 +140,12 @@
         }
 
         .callback-header {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            background: var(--primary-color);
             color: white;
             padding: 2rem;
             text-align: center;
         }
+
 
         .callback-header h1 {
             font-size: 1.8rem;
@@ -138,7 +180,7 @@
             border-radius: 8px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
-            font-family: inherit;
+            
         }
 
         .callback-form .form-control:focus {
@@ -196,22 +238,27 @@
         }
 
         .callback-alternative {
-            border-top: 1px solid var(--light-color);
-            margin-top: 2rem;
-            padding-top: 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
             text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .whatsapp-link {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+        .callback-alternative strong {
+            color: var(--accent-color);
         }
 
-        .whatsapp-link:hover {
-            color: var(--primary-color);
+        .callback-alternative .whatsapp-link {
+            color: white;
+            font-weight: 500;
+            text-decoration: underline;
         }
+
+        .callback-alternative .whatsapp-link:hover {
+            color: var(--accent-color);
+        }
+
 
         /* Footer */
         .footer {
@@ -252,107 +299,108 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">PlateAI</a>
+            <a href="#" class="logo">
+                <!-- Brand Logo C:\plateai-landing\images\Logo.png -->
+                <img src="images/Logo.png" alt="PlateAI Logo" style="height: 40px; width: auto;">
+            </a>
             
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Back to Home</a></li>
+                <li><a href="index.html" class="nav-link" data-translate="callback-back">Back to Home</a></li>
+                <li>
+                    <div class="language-toggle" style="margin-left: 1rem;">
+                        <button class="lang-btn active" onclick="setLanguage('en', this)">EN</button>
+                        <button class="lang-btn" onclick="setLanguage('sw', this)">SW</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
-            <div class="callback-container">
-                <div class="callback-header">
-                    <h1>Request a Callback</h1>
-                    <p>Our nutrition specialists will call you within 24 hours to discuss your personalized meal planning needs.</p>
-                </div>
-                
-                <div class="callback-body">
-                    <!-- Callback Form -->
-                    <form id="callbackForm" class="callback-form">
-                        <div class="form-group">
-                            <label for="callback-name" class="form-label">Your Name</label>
-                            <input type="text" id="callback-name" class="form-control" 
-                                placeholder="How should we call you?" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="callback-phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="callback-phone" class="form-control" 
-                                placeholder="+255 XXX XXX XXX" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="callback-type" class="form-label">I'm interested in</label>
-                            <select id="callback-type" class="form-control" required>
-                                <option value="">Choose consultation type</option>
-                                <option value="Nutrition Consultation">Nutrition Consultation</option>
-                                <option value="Meal Planning Help">Meal Planning Help</option>
-                                <option value="Health Condition Support">Health Condition Support</option>
-                                <option value="Product Demo">Product Demo & Questions</option>
-                                <option value="Partnership Inquiry">Partnership Inquiry</option>
-                                <option value="General Information">General Information</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="callback-time" class="form-label">Preferred Call Time</label>
-                            <select id="callback-time" class="form-control">
-                                <option value="">Any time is fine</option>
-                                <option value="Morning (9AM - 12PM)">Morning (9AM - 12PM)</option>
-                                <option value="Afternoon (12PM - 5PM)">Afternoon (12PM - 5PM)</option>
-                                <option value="Evening (5PM - 8PM)">Evening (5PM - 8PM)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="callback-message" class="form-label">Additional Information (Optional)</label>
-                            <textarea id="callback-message" class="form-control" rows="3" 
-                                    placeholder="Tell us about your specific needs, health goals, or any questions..."></textarea>
-                        </div>
-                        
-                        <div class="callback-actions">
-                            <a href="index.html" class="btn btn-secondary">
-                                Back to Home
-                            </a>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-phone-alt"></i>
-                                Request Callback
-                            </button>
-                        </div>
-                    </form>
-                    
-                    <!-- Alternative Contact -->
-                    <div class="callback-alternative">
-                        <p>
-                            <strong>Need immediate help?</strong><br>
-                            <span style="display: block; margin: 0.5rem 0;">
-                                <strong>General & Nutrition:</strong> 
-                                <a href="https://wa.me/255763129056?text=Hi%20PlateAI%2C%20I%27d%20like%20to%20learn%20more%20about%20personalized%20meal%20planning." 
-                                target="_blank" class="whatsapp-link">
-                                    <i class="fab fa-whatsapp"></i> +255 763 129 056
-                                </a>
-                            </span>
-                            <span style="display: block; margin: 0.5rem 0;">
-                                <strong>Partnerships:</strong>
-                                <a href="https://wa.me/255622387189?text=Hi%20PlateAI%2C%20I%27m%20interested%20in%20partnership%20opportunities." 
-                                target="_blank" class="whatsapp-link">
-                                    <i class="fab fa-whatsapp"></i> +255 622 387 189
-                                </a>
-                            </span>
-                        </p>
+        <div class="callback-container">
+            <div class="callback-header">
+                <h1 data-translate="callback-title">Request a Callback</h1>
+                <p data-translate="callback-subtitle">Our nutrition specialists will call you within 24 hours to discuss your personalized meal planning needs.</p>
+            </div>
+
+            <div class="callback-body">
+                <!-- form content -->
+                <form id="callbackForm" class="callback-form">
+                    <div class="form-group">
+                        <label for="callback-name" class="form-label" data-translate="callback-name">Your Name</label>
+                        <input type="text" id="callback-name" class="form-control" 
+                            data-translate="callback-name-placeholder" placeholder="How should we call you?" required>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="callback-phone" class="form-label" data-translate="callback-phone">Phone Number</label>
+                        <input type="tel" id="callback-phone" class="form-control" 
+                            data-translate="callback-phone-placeholder" placeholder="+255 XXX XXX XXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="callback-type" class="form-label" data-translate="callback-interest">I'm interested in</label>
+                        <select id="callback-type" class="form-control" required>
+                            <option value="" data-translate="callback-interest-placeholder">Choose consultation type</option>
+                            <option value="Nutrition Consultation" data-translate="callback-interest-nutrition">Nutrition Consultation</option>
+                            <option value="Meal Planning Help" data-translate="callback-interest-meal">Meal Planning Help</option>
+                            <option value="Health Condition Support" data-translate="callback-interest-health">Health Condition Support</option>
+                            <option value="Product Demo" data-translate="callback-interest-demo">Product Demo & Questions</option>
+                            <option value="Partnership Inquiry" data-translate="callback-interest-partnership">Partnership Inquiry</option>
+                            <option value="General Information" data-translate="callback-interest-general">General Information</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="callback-time" class="form-label" data-translate="callback-time">Preferred Call Time</label>
+                        <select id="callback-time" class="form-control">
+                            <option value="" data-translate="callback-time-any">Any time is fine</option>
+                            <option value="Morning (9AM - 12PM)" data-translate="callback-time-morning">Morning (9AM - 12PM)</option>
+                            <option value="Afternoon (12PM - 5PM)" data-translate="callback-time-afternoon">Afternoon (12PM - 5PM)</option>
+                            <option value="Evening (5PM - 8PM)" data-translate="callback-time-evening">Evening (5PM - 8PM)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="callback-message" class="form-label" data-translate="callback-message">Additional Information (Optional)</label>
+                        <textarea id="callback-message" class="form-control" rows="3" 
+                                data-translate="callback-message-placeholder" placeholder="Tell us about your specific needs, health goals, or any questions..."></textarea>
+                    </div>
+                    <div class="callback-actions">
+                        <a href="index.html" class="btn btn-secondary" data-translate="callback-back">
+                            Back to Home
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-phone-alt"></i>
+                            <span data-translate="callback-submit">Request Callback</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Alternative Contact -->
+            <div class="callback-alternative">
+                <p>
+                    <strong data-translate="callback-immediate">Need immediate help?</strong><br>
+                    <span style="display: block; margin: 0.5rem 0;">
+                        <strong data-translate="callback-general-nutrition">General & Nutrition:</strong> 
+                        <a href="https://wa.me/255763129056?..." target="_blank" class="whatsapp-link">
+                            <i class="fab fa-whatsapp"></i> +255 763 129 056
+                        </a>
+                    </span>
+                    <span style="display: block; margin: 0.5rem 0;">
+                        <strong data-translate="callback-partnerships">Partnerships:</strong>
+                        <a href="https://wa.me/255622387189?..." target="_blank" class="whatsapp-link">
+                            <i class="fab fa-whatsapp"></i> +255 622 387 189
+                        </a>
+                    </span>
+                </p>
             </div>
         </div>
+
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 PlateAI. All rights reserved.</p>
+            <p data-translate="footer-copyright">&copy; 2025 PlateAI. All rights reserved.</p>
         </div>
     </footer>
 
