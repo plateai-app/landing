@@ -197,13 +197,12 @@ const translations = {
     "restaurant3-desc": "Kwa sasa tunakubali wauzaji chakula jijini Dar es Salaam tu. Kuwa sehemu ya mtandao wetu unaoongezeka wa wauzaji waliofunzwa na kuwekwa vifaa wanaojitoa kwa ulaji wenye afya.",
     
     // About Section
-"about-title": "Kuhusu PlateAI",
-"about-text1": "Tumejikita katika kujenga mfumo bora wa ulaji wa kiafya – tukiwawezesha Watanzania kula vyakula vyenye lishe kupitia mipango ya milo ya kibinafsi, iliyorahisishwa na kulingana na vyakula vinavyopatikana kwa urahisi na kwa bei nafuu. Kupitia mtandao wetu wa wauzaji chakula jijini Dar es Salaam, tumejipanga kupanua huduma zetu kote nchini.",
-"about-text2": "PlateAI, tunaelewa changamoto za magonjwa yasiyo ya kuambukiza kwa sababu tumeona kwa karibu athari zake kwa wapendwa wetu. Uhusiano huu wa karibu ndio unaosukuma azma yetu ya kuhakikisha ulaji wa kiafya unapatikana kwa kila mtu.",
-"video-title": "Hadithi Yetu",
-"video-youtube": "Tazama kwenye YouTube",
-"video-falling-walls": "Tazama Uwasilishaji wa Falling Walls"
-
+    "about-title": "Kuhusu PlateAI",
+    "about-text1": "Tumejitolea kuunda ekolojia ya ulaji wa kiafya - kuwawezesha Watanzania kula vyakula vyenye afya kupitia mipango ya milo ya kibinafsi iliyorahisishwa na milo inayopatikana kwa urahisi na bei nafuu. Kwa kutumia mtandao wa wauzaji chakulajijini Dar es Salaam, tumejitolea kupanua huduma zetu nchi nzima.",
+    "about-text2": "PlateAI, tunaelewa changamoto za magonjwa yasiyo ya kuambukiza kwa sababu tumekuwa watu wa karibu waliokabiliwa na chavgamoto hizo. Uhusiano huu wa kibinafsi ndio unaosukuma dhamira yetu ya kufanya ulaji wenye afya upatikane kwa kila mtu.",
+    "video-title": "Hadithi Yetu",
+    "video-youtube": "Tazama kwenye YouTube",
+    "video-falling-walls": "Fuatilia Wasilisho la Falling Walls",
     
     // CTA Section
     "cta-title": "Uko tayari kuanza safari yako ya lishe?",
