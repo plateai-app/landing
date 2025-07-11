@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlateAI - Personalized Nutrition for Tanzania</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/translations.js"></script>
     
     <style>
         :root {
@@ -26,11 +28,28 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--dark-color);
             background-color: #fff;
         }
+
+        ::selection {
+            background: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        /* Headings use Dongle */
+        h1, h2, h3, h4, h5, h6, .hero-title, .portal-title, .health-title, .feature-card h3,
+        .teaser h2, .how-it-works h2, .restaurant-section h2, .restaurant-card h4,
+        .about-section h2, .cta-section h2, .footer-section h4 {
+            font-family: 'Dongle', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.1;
+        }
+
 
         .container {
             max-width: 1200px;
@@ -53,7 +72,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 20px;
+            padding: 2rem 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -181,7 +200,7 @@
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 0.6;
         }
 
         .hero-description {
@@ -335,6 +354,10 @@
             margin: 4rem 0;
         }
 
+        .features-grid>div>h3, .steps>div>h3, .benefit-card>h4, .restaurant-benefits>div>h4, .video-container>h3, .footer-section>h4 {
+            font-size: 2rem;
+        }
+
         .feature-card {
             background: white;
             padding: 2.5rem 1.5rem;
@@ -471,11 +494,14 @@
         .benefit-card h4 {
             color: var(--primary-color);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .benefit-card h4 i {
+            font-size: 1.2rem !important;
         }
 
         .benefit-card p {
@@ -627,7 +653,6 @@
         .footer-section h4 {
             margin-bottom: 1rem;
             color: var(--accent-color);
-            font-size: 1.1rem;
             font-weight: 600;
         }
 
@@ -745,6 +770,7 @@
 
             .hero-title {
                 font-size: 2.5rem;
+                line-height: 0.6;
             }
 
             .hero-buttons {
@@ -783,7 +809,8 @@
             }
 
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
+                line-height: 0.6;
             }
 
             .teaser h2,
@@ -834,7 +861,8 @@
             }
 
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
+                line-height: 0.6;
             }
 
             .health-content {
@@ -847,20 +875,22 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">PlateAI</a>
+            <a href="#" class="logo">
+                <img src="images/Logo.png" alt="PlateAI Logo" style="height: 40px; width: auto;">
+            </a>
             
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#nutritionist" class="nav-link">For Nutritionist</a></li>
-                <li><a href="#" class="nav-link" onclick="alert('Coming Soon: lishe.plateai.app')">For Kids</a></li>
-                <li><a href="https://msosi.plateai.app" class="nav-link" target="_blank" rel="noopener">Planned Meals</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link" data-translate="nav-home">Home</a></li>
+                <li><a href="#nutritionist" class="nav-link" data-translate="nav-nutritionist">For Nutritionist</a></li>
+                <li><a href="#" class="nav-link" onclick="alert('Coming Soon: lishe.plateai.app')" data-translate="nav-kids">For Kids</a></li>
+                <li><a href="https://msosi.plateai.app" class="nav-link" target="_blank" rel="noopener" data-translate="nav-planned-meals">Planned Meals</a></li>
+                <li><a href="#about" class="nav-link" data-translate="nav-about">About</a></li>
+                <li><a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a></li>
                 
                 <li>
                     <div class="language-toggle">
-                        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
-                        <button class="lang-btn" onclick="setLanguage('sw')">SW</button>
+                        <button class="lang-btn active" onclick="setLanguage('en', this)">EN</button>
+                        <button class="lang-btn" onclick="setLanguage('sw', this)">SW</button>
                     </div>
                 </li>
             </ul>
@@ -880,13 +910,13 @@
             <div class="container">
                 <div class="hero-row">
                     <div class="hero-text">
-                        <h1 class="hero-title">Personalized meals made easy.</h1>
-                        <p class="hero-description">PlateAI advises what to eat based on your body's needs, using foods available locally in Tanzania.</p>
+                        <h1 class="hero-title" data-translate="hero-title">Personalized meals made easy.</h1>
+                        <p class="hero-description" data-translate="hero-description">PlateAI advises what to eat based on your body's needs, using foods available locally in Tanzania.</p>
                         <div class="hero-buttons">
-                            <a href="https://plateai.app/onboard" class="btn btn-warning hero-btn">
+                            <a href="https://plateai.app/onboard" class="btn btn-warning hero-btn" data-translate="btn-get-started">
                                 Get Started
                             </a>
-                            <a href="callback.html" class="btn btn-outline-warning hero-btn">
+                            <a href="callback.html" class="btn btn-outline-warning hero-btn" data-translate="btn-request-callback">
                                 Request Callback
                             </a>
                         </div>
@@ -896,7 +926,7 @@
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="hero-icon-fallback" style="display: none;">
                             <i class="fas fa-utensils" style="font-size: 4rem;"></i>
-                            <p>🍽️ Personalized Nutrition</p>
+                            <p data-translate="hero-alt-text">🍽️ Personalized Nutrition</p>
                         </div>
                     </div>
                 </div>
@@ -907,26 +937,26 @@
         <section class="health-info">
             <div class="container">
                 <div class="health-content">
-                    <h2 class="health-title">PlateAI helps in managing</h2>
+                    <h2 class="health-title" data-translate="health-title">PlateAI helps in managing</h2>
                     <div class="conditions-grid">
                         <div class="condition-item">
                             <i class="fas fa-syringe condition-icon"></i>
-                            <p>Diabetes</p>
+                            <p data-translate="condition-diabetes">Diabetes</p>
                         </div>
                         <div class="condition-item">
                             <i class="fas fa-heart condition-icon"></i>
-                            <p>Hypertension</p>
+                            <p data-translate="condition-hypertension">Hypertension</p>
                         </div>
                         <div class="condition-item">
                             <i class="fas fa-weight condition-icon"></i>
-                            <p>Obesity</p>
+                            <p data-translate="condition-obesity">Obesity</p>
                         </div>
                         <div class="condition-item">
                             <i class="fas fa-procedures condition-icon"></i>
-                            <p>Chronic Kidney Disease</p>
+                            <p data-translate="condition-kidney">Chronic Kidney Disease</p>
                         </div>
                     </div>
-                    <p class="health-subtitle">and prevent many more before they start</p>
+                    <p class="health-subtitle" data-translate="health-subtitle">and prevent many more before they start</p>
                 </div>
             </div>
         </section>
@@ -935,30 +965,30 @@
         <section class="teaser">
             <div class="container">
                 <div class="teaser-content">
-                    <h2>Find Balance With Flexibility</h2>
-                    <p class="teaser-subtitle">Meet your dietary needs with our meal plans/package measured to suit your need and fit your preferences. We'll recommend food from 300+ meals easily available.</p>
+                    <h2 data-translate="teaser-title">Find Balance With Flexibility</h2>
+                    <p class="teaser-subtitle" data-translate="teaser-subtitle">Meet your dietary needs with our meal plans/package measured to suit your need and fit your preferences. We'll recommend food from 300+ meals easily available.</p>
                     
                     <div class="features-grid">
                         <div class="feature-card">
                             <div class="feature-icon">
                                 <i class="fa fa-utensils"></i>
                             </div>
-                            <h3>Personalized Plans</h3>
-                            <p>Get meal plans tailored to your body's needs, preferences, and local food availability.</p>
+                            <h3 data-translate="feature1-title">Personalized Plans</h3>
+                            <p data-translate="feature1-desc">Get meal plans tailored to your body's needs, preferences, and local food availability.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">
                                 <i class="fa fa-leaf"></i>
                             </div>
-                            <h3>Local Ingredients</h3>
-                            <p>Meals designed with locally available ingredients that you can easily find and afford.</p>
+                            <h3 data-translate="feature2-title">Local Ingredients</h3>
+                            <p data-translate="feature2-desc">Meals designed with locally available ingredients that you can easily find and afford.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">
                                 <i class="fas fa-stethoscope"></i>
                             </div>
-                            <h3>Expert Support</h3>
-                            <p>Access to qualified nutritionists for personalized advice and meal adjustments.</p>
+                            <h3 data-translate="feature3-title">Expert Support</h3>
+                            <p data-translate="feature3-desc">Access to qualified nutritionists for personalized advice and meal adjustments.</p>
                         </div>
                     </div>
                 </div>
@@ -968,22 +998,22 @@
         <!-- How It Works Section -->
         <section class="how-it-works">
             <div class="container">
-                <h2>How it works</h2>
+                <h2 data-translate="how-title">How it works</h2>
                 <div class="steps">
                     <div class="step">
                         <i class="fa fa-check-circle step-icon"></i>
-                        <h3>Select preferred foods</h3>
-                        <p>Tell us about your food preferences, allergies, and dietary needs through our simple questionnaire.</p>
+                        <h3 data-translate="step1-title">Select preferred foods</h3>
+                        <p data-translate="step1-desc">Tell us about your food preferences, allergies, and dietary needs through our simple questionnaire.</p>
                     </div>
                     <div class="step">
                         <i class="fa fa-brain step-icon"></i>
-                        <h3>Get personalized plan</h3>
-                        <p>Our AI creates a custom meal plan based on your body's needs and local food availability.</p>
+                        <h3 data-translate="step2-title">Get personalized plan</h3>
+                        <p data-translate="step2-desc">Our AI creates a custom meal plan based on your body's needs and local food availability.</p>
                     </div>
                     <div class="step">
                         <i class="fa fa-shopping-cart step-icon"></i>
-                        <h3>Order planned meals</h3>
-                        <p>Export your meal plan to MsosiHub for easy ordering with exact measurements and portions.</p>
+                        <h3 data-translate="step3-title">Order planned meals</h3>
+                        <p data-translate="step3-desc">Export your meal plan to MsosiHub for easy ordering with exact measurements and portions.</p>
                     </div>
                 </div>
             </div>
@@ -994,16 +1024,16 @@
             <div class="container">
                 <div class="portal-hero">
                     <div class="portal-text">
-                        <h2 class="portal-title">Empower Your Practice with Technology</h2>
-                        <p class="portal-description">Join our network of qualified nutritionists and leverage technology to better serve your clients. Monitor adherence, provide timely feedback, and expand your reach through our integrated platform.</p>
-                        <a href="#contact" class="btn btn-primary">Join Our Network</a>
+                        <h2 class="portal-title" data-translate="portal-title">Empower Your Practice with Technology</h2>
+                        <p class="portal-description" data-translate="portal-description">Join our network of qualified nutritionists and leverage technology to better serve your clients. Monitor adherence, provide timely feedback, and expand your reach through our integrated platform.</p>
+                        <a href="#contact" class="btn btn-primary" data-translate="btn-join-network">Join Our Network</a>
                     </div>
                     <div class="hero-image">
                         <img src="images/hero.png" alt="PlateAI Hero Image" class="hero-img" 
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="hero-icon-fallback" style="display: none;">
                             <i class="fas fa-utensils" style="font-size: 4rem;"></i>
-                            <p>🍽️ Personalized Nutrition</p>
+                            <p data-translate="hero-alt-text">🍽️ Personalized Nutrition</p>
                         </div>
                     </div>
                 </div>
@@ -1012,30 +1042,30 @@
                     <div class="benefit-card">
                         <h4>
                             <i class="fas fa-users"></i>
-                            Client Management Made Easy
+                            <span data-translate="benefit1-title">Client Management Made Easy</span>
                         </h4>
-                        <p>Manage all your clients in one platform. Create profiles, track progress, and monitor meal plan adherence with real-time data.</p>
+                        <p data-translate="benefit1-desc">Manage all your clients in one platform. Create profiles, track progress, and monitor meal plan adherence with real-time data.</p>
                     </div>
                     <div class="benefit-card">
                         <h4>
                             <i class="fas fa-mobile-alt"></i>
-                            WhatsApp Integration
+                            <span data-translate="benefit2-title">WhatsApp Integration</span>
                         </h4>
-                        <p>Clients receive meal reminders and can log their food directly via WhatsApp. Review their submissions and provide feedback instantly.</p>
+                        <p data-translate="benefit2-desc">Clients receive meal reminders and can log their food directly via WhatsApp. Review their submissions and provide feedback instantly.</p>
                     </div>
                     <div class="benefit-card">
                         <h4>
                             <i class="fas fa-chart-line"></i>
-                            Data-Driven Insights
+                            <span data-translate="benefit3-title">Data-Driven Insights</span>
                         </h4>
-                        <p>Access detailed analytics on client adherence, progress tracking, and outcome measurements to make informed decisions.</p>
+                        <p data-translate="benefit3-desc">Access detailed analytics on client adherence, progress tracking, and outcome measurements to make informed decisions.</p>
                     </div>
                     <div class="benefit-card">
                         <h4>
                             <i class="fas fa-network-wired"></i>
-                            Expand Your Reach
+                            <span data-translate="benefit4-title">Expand Your Reach</span>
                         </h4>
-                        <p>Connect with clients across Tanzania through our platform. Offer remote consultations and build a larger practice.</p>
+                        <p data-translate="benefit4-desc">Connect with clients across Tanzania through our platform. Offer remote consultations and build a larger practice.</p>
                     </div>
                 </div>
             </div>
@@ -1044,21 +1074,21 @@
         <!-- Restaurant Section -->
         <section class="restaurant-section">
             <div class="container">
-                <h2>For Restaurants - Healthy Food as a Service</h2>
-                <p class="restaurant-subtitle">Join our network of food vendors in Dar es Salaam and tap into the growing healthy food market.</p>
+                <h2 data-translate="restaurant-title">For Restaurants - Healthy Food as a Service</h2>
+                <p class="restaurant-subtitle" data-translate="restaurant-subtitle">Join our network of food vendors in Dar es Salaam and tap into the growing healthy food market.</p>
                 
                 <div class="restaurant-benefits">
                     <div class="restaurant-card">
-                        <h4>No Entry Barriers</h4>
-                        <p>You don't need specific culinary training. Our guidebooks and tools will allow you to prepare healthy foods using easily available local ingredients and serve exactly as per user needs with our kitchen equipment and guides.</p>
+                        <h4 data-translate="restaurant1-title">No Entry Barriers</h4>
+                        <p data-translate="restaurant1-desc">You don't need specific culinary training. Our guidebooks and tools will allow you to prepare healthy foods using easily available local ingredients and serve exactly as per user needs with our kitchen equipment and guides.</p>
                     </div>
                     <div class="restaurant-card">
-                        <h4>Maximize Your Reach</h4>
-                        <p>Tap into new market opportunities by serving health-conscious customers. Expand your customer base and increase revenue through our platform.</p>
+                        <h4 data-translate="restaurant2-title">Maximize Your Reach</h4>
+                        <p data-translate="restaurant2-desc">Tap into new market opportunities by serving health-conscious customers. Expand your customer base and increase revenue through our platform.</p>
                     </div>
                     <div class="restaurant-card">
-                        <h4>Dar es Salaam Network</h4>
-                        <p>Currently accepting food vendors in Dar es Salaam only. Be part of our growing network of trained and equipped vendors committed to healthy eating.</p>
+                        <h4 data-translate="restaurant3-title">Dar es Salaam Network</h4>
+                        <p data-translate="restaurant3-desc">Currently accepting food vendors in Dar es Salaam only. Be part of our growing network of trained and equipped vendors committed to healthy eating.</p>
                     </div>
                 </div>
             </div>
@@ -1068,16 +1098,16 @@
         <section id="about" class="about-section">
             <div class="container">
                 <div class="about-content">
-                    <h2>About PlateAI</h2>
-                    <p class="about-text">
+                    <h2 data-translate="about-title">About PlateAI</h2>
+                    <p class="about-text" data-translate="about-text1">
                         We are committed to creating a healthy eating ecosystem - empowering Tanzanians to eat healthily through simplified personalized meal plans and easily accessible, affordable planned meals. Leveraging a network of food vendors (trained and equipped in Dar es Salaam), we are committed to expanding our impact to the entire country.
                     </p>
-                    <p class="about-text">
+                    <p class="about-text" data-translate="about-text2">
                         At PlateAI, we understand the challenges because we have experienced at some point our relatives and close people facing diet-related issues. This personal connection drives our mission to make healthy eating accessible to everyone.
                     </p>
                     
                     <div class="video-container">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Our Story</h3>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;" data-translate="video-title">Our Story</h3>
                         <iframe 
                             class="video-embed"
                             src="https://www.youtube.com/embed/fJEBAgG0uIU" 
@@ -1088,10 +1118,10 @@
                         </iframe>
                         <div class="video-links">
                             <a href="https://youtu.be/fJEBAgG0uIU" target="_blank" class="video-link">
-                                <i class="fab fa-youtube"></i> Watch on YouTube
+                                <i class="fab fa-youtube"></i> <span data-translate="video-youtube">Watch on YouTube</span>
                             </a>
                             <a href="https://apply.falling-walls.com/discover/videos/breaking-the-wall-of-unhealthy-eating-habits/" target="_blank" class="video-link">
-                                <i class="fas fa-external-link-alt"></i> Falling Walls Feature
+                                <i class="fas fa-external-link-alt"></i> <span data-translate="video-falling-walls">Falling Walls Feature</span>
                             </a>
                         </div>
                     </div>
@@ -1102,9 +1132,9 @@
         <!-- CTA Section -->
         <section class="cta-section">
             <div class="container">
-                <h2>Ready to start your nutrition journey?</h2>
-                <p>Join thousands of users who've transformed their eating habits with PlateAI</p>
-                <a href="https://plateai.app/onboard" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Get Started Today</a>
+                <h2 data-translate="cta-title">Ready to start your nutrition journey?</h2>
+                <p data-translate="cta-description">Join thousands of users who've transformed their eating habits with PlateAI</p>
+                <a href="https://plateai.app/onboard" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;" data-translate="btn-get-started-today">Get Started Today</a>
             </div>
         </section>
     </main>
@@ -1115,7 +1145,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>PlateAI</h4>
-                    <p>Personalized nutrition made simple with locally available foods in Tanzania. Join thousands of users transforming their eating habits.</p>
+                    <p data-translate="footer-description">Personalized nutrition made simple with locally available foods in Tanzania. Join thousands of users transforming their eating habits.</p>
                     <div class="footer-social">
                         <a href="https://wa.me/255763129056" class="social-link">
                             <i class="fab fa-whatsapp"></i>
@@ -1129,29 +1159,29 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="#home">Home</a>
-                    <a href="https://plateai.app/onboard">Get Started</a>
-                    <a href="https://msosi.plateai.app" target="_blank" rel="noopener">Order Meals</a>
-                    <a href="#nutritionist">For Nutritionists</a>
-                    <a href="#about">About Us</a>
+                    <h4 data-translate="footer-quick-links">Quick Links</h4>
+                    <a href="#home" data-translate="footer-link-home">Home</a>
+                    <a href="https://plateai.app/onboard" data-translate="footer-link-get-started">Get Started</a>
+                    <a href="https://msosi.plateai.app" target="_blank" rel="noopener" data-translate="footer-link-order-meals">Order Meals</a>
+                    <a href="#nutritionist" data-translate="footer-link-nutritionists">For Nutritionists</a>
+                    <a href="#about" data-translate="footer-link-about">About Us</a>
                 </div>
                 <div class="footer-section">
-                    <h4>For Professionals</h4>
-                    <a href="#nutritionist">Nutritionist Portal</a>
-                    <a href="#" onclick="alert('Coming Soon: lishe.plateai.app')">For Kids</a>
-                    <a href="#contact">Partner With Us</a>
-                    <a href="#contact">Become a Nutritionist</a>
+                    <h4 data-translate="footer-professionals">For Professionals</h4>
+                    <a href="#nutritionist" data-translate="footer-link-portal">Nutritionist Portal</a>
+                    <a href="#" onclick="alert('Coming Soon: lishe.plateai.app')" data-translate="footer-link-kids">For Kids</a>
+                    <a href="#contact" data-translate="footer-link-partner">Partner With Us</a>
+                    <a href="#contact" data-translate="footer-link-become-nutritionist">Become a Nutritionist</a>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact & Support</h4>
-                    <p><strong>Office:</strong> Dar es Salaam, Tanzania</p>
-                    <p><strong>Phone:</strong> <a href="tel:+255763129056">+255 763 129 056</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:aiplate.tz@gmail.com">aiplate.tz@gmail.com</a></p>
+                    <h4 data-translate="footer-contact-support">Contact & Support</h4>
+                    <p><strong data-translate="footer-office">Office:</strong> Dar es Salaam, Tanzania</p>
+                    <p><strong data-translate="footer-phone">Phone:</strong> <a href="tel:+255763129056">+255 763 129 056</a></p>
+                    <p><strong data-translate="footer-email">Email:</strong> <a href="mailto:aiplate.tz@gmail.com">aiplate.tz@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 PlateAI. All rights reserved. </p>
+                <p data-translate="footer-copyright">&copy; 2025 PlateAI. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1162,28 +1192,6 @@
             const navMenu = document.getElementById('nav-menu');
             navMenu.classList.toggle('active');
         }
-
-        // Language toggle
-        function setLanguage(lang) {
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Store in localStorage
-            localStorage.setItem('preferred_language', lang);
-        }
-
-        // Load preferred language on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const preferredLang = localStorage.getItem('preferred_language') || 'en';
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.toLowerCase() === preferredLang) {
-                    btn.classList.add('active');
-                }
-            });
-        });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
