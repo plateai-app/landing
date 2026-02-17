@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlateAI - Personalized Nutrition for Tanzania</title>
+    <title>Lishe by PlateAI - Empowering Nutrition Professionals</title>
+    <meta name="description" content="Lishe helps certified nutrition professionals serve more clients with speed, precision, and clinically-approved meal distribution, built for real life in Africa.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon" href="https://raw.githubusercontent.com/plateai-app/landing/main/images/favicon-plate.png" type="image/png">
@@ -86,6 +88,9 @@
             font-weight: bold;
             color: var(--primary-color);
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
         }
 
         .nav-menu {
@@ -314,7 +319,7 @@
 
         .condition-item p {
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 400;
             line-height: 1.4;
         }
 
@@ -393,7 +398,7 @@
         .feature-card h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.75rem;
             font-weight: 600;
         }
 
@@ -411,7 +416,7 @@
 
         .how-it-works h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 3.0rem;
             margin-bottom: 4rem;
             font-weight: 600;
         }
@@ -629,7 +634,7 @@
 
         .cta-section h2 {
             color: var(--dark-color);
-            font-size: 2rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 600;
         }
@@ -638,6 +643,11 @@
             color: var(--dark-color);
             margin-bottom: 2rem;
             opacity: 0.8;
+        }
+
+        .cta-subtitle {
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
         /* Footer */
@@ -681,22 +691,33 @@
 
         .footer-social {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+            flex-wrap: nowrap;
         }
 
-        .social-link {
-            width: 40px;
-            height: 40px;
+        .footer-social .social-link {
+            width: 42px;
+            height: 42px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            margin: 0;
+            opacity: 1;
+            flex: 0 0 42px;
         }
 
-        .social-link:hover {
+        .footer-social .social-link i {
+            line-height: 1;
+            font-size: 1.1rem;
+        }
+
+        .footer-social .social-link:hover {
             background: var(--accent-color);
             color: var(--dark-color);
             transform: translateY(-2px);
@@ -707,6 +728,132 @@
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             opacity: 0.7;
+        }
+
+        .accordion-item {
+            border: 1px solid rgba(53, 57, 92, 0.12);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 6px 20px rgba(33, 25, 46, 0.06);
+        }
+
+        .accordion-item h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .accordion-button {
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 2rem;
+            line-height: 1.35;
+            background: #fff;
+            padding: 1rem 1.25rem;
+        }
+
+        .accordion-button:hover {
+            background: var(--light-color);
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--primary-color);
+            background: var(--light-color);
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(33, 172, 120, 0.2);
+        }
+
+        .accordion-button::after {
+            filter: none;
+            opacity: 1;
+        }
+
+        .accordion-collapse {
+            background: #fff;
+        }
+
+        .accordion-body {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: #fff;
+            padding: 1rem 1.25rem 1.25rem;
+        }
+
+        .faq-icon {
+            color: var(--secondary-color);
+        }
+
+        .faq-accordion .accordion-button {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .faq-accordion .accordion-body {
+            font-size: 1.25rem;
+            line-height: 1.5;
+        }
+
+        .faq-accordion .accordion-body .cta-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: var(--dark-color) !important;
+            opacity: 1;
+            visibility: visible;
+            display: block;
+        }
+
+        .seen-logo-chip {
+            background: transparent;
+            color: var(--dark-color);
+            border-radius: 0;
+            padding: 0;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: auto;
+        }
+
+        .seen-logo-img {
+            height: 52px;
+            width: auto;
+            max-width: 180px;
+            filter: grayscale(100%);
+            opacity: 0.85;
+            transition: filter 0.25s ease, opacity 0.25s ease;
+        }
+
+        .seen-logo-chip:hover .seen-logo-img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .as-seen-title {
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+        }
+
+        .eyebrow-thin {
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+        }
+
+        .step-placeholder {
+            height: 120px;
+            border-radius: 14px;
+            background: var(--light-color);
+            color: rgba(33, 25, 46, 0.65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         /* Hamburger Menu for Mobile */
@@ -736,10 +883,19 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 16px;
+            }
+
+            .logo img {
+                height: 34px !important;
+                width: auto;
+            }
+
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: 72px;
                 flex-direction: column;
                 background-color: white;
                 width: 100%;
@@ -755,6 +911,11 @@
 
             .hamburger {
                 display: flex;
+                width: 44px;
+                height: 44px;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
             }
 
             .language-toggle {
@@ -884,12 +1045,11 @@
             </a>
             
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link" data-translate="nav-home">Home</a></li>
-                <li><a href="#nutritionist" class="nav-link" data-translate="nav-nutritionist">For Nutritionist</a></li>
-                <li><a href="#" class="nav-link" onclick="alert('Coming Soon: lishe.plateai.app')" data-translate="nav-kids">For Kids</a></li>
-                <li><a href="https://msosi.plateai.app" class="nav-link" target="_blank" rel="noopener" data-translate="nav-planned-meals">Planned Meals</a></li>
-                <li><a href="#about" class="nav-link" data-translate="nav-about">About</a></li>
-                <li><a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#manager" class="nav-link">Lishe Manager</a></li>
+                <li><a href="#planner" class="nav-link">Lishe Planner</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
                 
                 <li>
                     <div class="language-toggle">
@@ -909,28 +1069,26 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section id="home" class="hero">
             <div class="container">
-                <div class="hero-row">
-                    <div class="hero-text">
-                        <h1 class="hero-title" data-translate="hero-title">Personalized meals made easy.</h1>
-                        <p class="hero-description" data-translate="hero-description">PlateAI advises what to eat based on your body's needs, using foods available locally in Tanzania.</p>
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <p class="mb-2 eyebrow-thin" style="color: var(--accent-color);">Lishe by PlateAI</p>
+                        <h1 class="hero-title mb-3">Empowering Nutrition Professionals</h1>
+                        <p class="hero-description">Faster, more scalable, clinically-approved meal planning, built with easily accessible food in Tanzania.</p>
                         <div class="hero-buttons">
-                            <a href="https://plateai.app/onboard" class="btn btn-warning hero-btn" data-translate="btn-get-started">
-                                Get Started
-                            </a>
-                            <a href="callback.html" class="btn btn-outline-warning hero-btn" data-translate="btn-request-callback">
-                                Request Callback
-                            </a>
+                            <a href="callback.html" class="btn btn-warning hero-btn">Book a demo</a>
+                            <a href="#planner" class="btn btn-outline-warning hero-btn">Individual? Start your journey</a>
                         </div>
                     </div>
-                    <div class="hero-image">
-                        <img src="images/hero.png" alt="PlateAI Hero Image" class="hero-img" 
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="hero-icon-fallback" style="display: none;">
-                            <i class="fas fa-utensils" style="font-size: 4rem;"></i>
-                            <p data-translate="hero-alt-text">🍽️ Personalized Nutrition</p>
+                    <div class="col-lg-6">
+                        <div class="hero-image">
+                            <img src="images/hero.png" alt="Lishe Manager dashboard" class="hero-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="hero-icon-fallback" style="display: none;">
+                                <i class="fas fa-utensils" style="font-size: 4rem;"></i>
+                                <p>Personalized Nutrition</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -938,209 +1096,295 @@
         </section>
 
         <!-- Health Info Section -->
-        <section class="health-info">
+        <section class="health-info py-5">
             <div class="container">
                 <div class="health-content">
-                    <h2 class="health-title" data-translate="health-title">PlateAI helps in managing</h2>
+                    <h2 class="health-title">PlateAI helps in managing</h2>
                     <div class="conditions-grid">
                         <div class="condition-item">
                             <i class="fas fa-syringe condition-icon"></i>
-                            <p data-translate="condition-diabetes">Diabetes</p>
+                            <p>Diabetes</p>
                         </div>
                         <div class="condition-item">
                             <i class="fas fa-heart condition-icon"></i>
-                            <p data-translate="condition-hypertension">Hypertension</p>
+                            <p>Hypertension</p>
                         </div>
                         <div class="condition-item">
                             <i class="fas fa-weight condition-icon"></i>
-                            <p data-translate="condition-obesity">Obesity</p>
+                            <p>Obesity</p>
                         </div>
                         <div class="condition-item">
                             <i class="fas fa-procedures condition-icon"></i>
-                            <p data-translate="condition-kidney">Chronic Kidney Disease</p>
+                            <p>Chronic Kidney Disease</p>
                         </div>
                     </div>
-                    <p class="health-subtitle" data-translate="health-subtitle">and prevent many more before they start</p>
+                    <p class="health-subtitle">and prevent many more before they start</p>
                 </div>
             </div>
         </section>
 
-        <!-- Teaser Section -->
-        <section class="teaser">
+        <!-- As Seen In -->
+        <section class="py-5">
             <div class="container">
-                <div class="teaser-content">
-                    <h2 data-translate="teaser-title">Find Balance With Flexibility</h2>
-                    <p class="teaser-subtitle" data-translate="teaser-subtitle">Meet your dietary needs with our meal plans/package measured to suit your need and fit your preferences. We'll recommend food from 300+ meals easily available.</p>
-                    
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fa fa-utensils"></i>
+                <div class="text-center">
+                    <h2 class="health-title mb-4 as-seen-title">As seen in</h2>
+                    <div class="d-flex flex-wrap gap-3 align-items-center justify-content-center">
+                        <div class="seen-logo-chip">
+                            <img src="images/bbc-swahili.jpg" alt="BBC Swahili" class="seen-logo-img">
+                        </div>
+                        <div class="seen-logo-chip">
+                            <img src="images/DW.png" alt="DW" class="seen-logo-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lishe Manager -->
+        <section id="manager" class="nutritionist-portal py-5">
+            <div class="container">
+                <div class="row align-items-center g-4 mb-5">
+                    <div class="col-lg-7">
+                        <h2 class="portal-title mb-2">Lishe Manager</h2>
+                        <p class="text-uppercase fw-semibold mb-2" style="color: var(--secondary-color); letter-spacing: 0.06em;">For Nutrition Professionals</p>
+                        <p class="portal-description mb-0">Serve more clients with speed, precision, and clinically-approved meal distribution.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="benefit-card h-100">
+                            <h4 class="mb-2"><i class="fas fa-user-shield"></i> For certified professionals only.</h4>
+                            <p class="mb-0">Lishe Manager is designed for verified practitioners managing client care at scale.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="portal-title mb-3">How Manager works</h3>
+                <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+                    <div class="col">
+                        <div class="feature-card h-100 text-start">
+                            <div class="step-placeholder mb-3">Placeholder image</div>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-user-check me-2" aria-hidden="true"></i>
+                                <h3 class="mb-0">Certified professional onboarding</h3>
                             </div>
-                            <h3 data-translate="feature1-title">Personalized Plans</h3>
-                            <p data-translate="feature1-desc">Get meal plans tailored to your body's needs, preferences, and local food availability.</p>
+                            <p class="mb-0">Professionals register, get verified, and unlock the earnings dashboard.</p>
                         </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fa fa-leaf"></i>
+                    </div>
+                    <div class="col">
+                        <div class="feature-card h-100 text-start">
+                            <div class="step-placeholder mb-3">Placeholder image</div>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-notes-medical me-2" aria-hidden="true"></i>
+                                <h3 class="mb-0">Client data and risk capture</h3>
                             </div>
-                            <h3 data-translate="feature2-title">Local Ingredients</h3>
-                            <p data-translate="feature2-desc">Meals designed with locally available ingredients that you can easily find and afford.</p>
+                            <p class="mb-0">Collect anthropometrics, preferences, allergens, meal frequency, and NCD/risk status.</p>
                         </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="col">
+                        <div class="feature-card h-100 text-start">
+                            <div class="step-placeholder mb-3">Placeholder image</div>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-sliders me-2" aria-hidden="true"></i>
+                                <h3 class="mb-0">Customized distribution engine</h3>
                             </div>
-                            <h3 data-translate="feature3-title">Expert Support</h3>
-                            <p data-translate="feature3-desc">Access to qualified nutritionists for personalized advice and meal adjustments.</p>
+                            <p class="mb-0">Generate targets, adapt by local availability, and reuse or remix distribution structures.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="feature-card h-100 text-start">
+                            <div class="step-placeholder mb-3">Placeholder image</div>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-file-circle-check me-2" aria-hidden="true"></i>
+                                <h3 class="mb-0"><i class="fas fa-file-circle-check me-2" aria-hidden="true"></i>Plan approval and client handoff</h3>
+                            </div>
+                            <p class="mb-0">Finalize the plan, share invite link, and transition paid clients into Lishe Planner.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="portal-title mb-3">Why Professionals Choose Lishe</h3>
+                <div class="row g-3 mb-4">
+                    <div class="col-12 col-lg-4">
+                        <div class="benefit-card h-100">
+                            <h4 class="mb-2"><i class="fas fa-gauge-high me-2" aria-hidden="true"></i>Faster plan creation</h4>
+                            <p class="mb-0">Lishe uses a reusable distribution engine. Subtly modify Lishe templates or create your own-then reuse them across clients.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="benefit-card h-100">
+                            <h4 class="mb-2"><i class="fas fa-sliders me-2" aria-hidden="true"></i>Total control</h4>
+                            <p class="mb-0">Create recipes that match your taste, each client's preferences, and local food availability. Customization doesn't reduce speed-everything is reusable.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="benefit-card h-100">
+                            <h4 class="mb-2"><i class="fas fa-bell me-2" aria-hidden="true"></i>Automated follow-ups</h4>
+                            <p class="mb-0">Lishe checks in on your behalf-reminds clients to follow meals, log progress, and capture changes via WhatsApp or SMS.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3">
+                    <a href="callback.html" class="btn btn-primary">Book a Manager demo</a>
+                    <p class="mb-0 text-muted">See client intake, distribution building, approvals, and delivery in 15 minutes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lishe Planner -->
+        <section id="planner" class="teaser py-5">
+            <div class="container">
+                <div class="row align-items-center g-4 mb-4">
+                    <div class="col-lg-8">
+                        <h2 class="mb-2">Lishe Planner</h2>
+                        <p class="text-uppercase fw-semibold mb-2" style="color: var(--secondary-color); letter-spacing: 0.06em;">For Individuals</p>
+                        <p class="teaser-subtitle mb-0">Simple daily plans, smart swaps, and WhatsApp reminders.</p>
+                    </div>
+                </div>
+
+                <h3 class="portal-title mb-3">How Planner works</h3>
+                <div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+                    <div class="col">
+                        <div class="feature-card h-100 text-start">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-user me-2" aria-hidden="true"></i>
+                                <h3 class="mb-0">Collect details - set up profile</h3>
+                            </div>
+                            <p class="mb-0">Add anthropometrics, preferences, allergens, meal frequency, NCD status, and optional location.</p>
+                            <div class="step-placeholder mt-3">Placeholder image</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="feature-card h-100 text-start">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-bullseye me-2" aria-hidden="true"></i>
+                                <h3 class="mb-0">Receive hyper-personalized plans</h3>
+                            </div>
+                            <p class="mb-0">Receive hyper-personalized plans.</p>
+                            <div class="step-placeholder mt-3">Placeholder image</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="feature-card h-100 text-start">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-right-left me-2" aria-hidden="true"></i>
+                                <h3 class="mb-0">Swap with what's available or you like</h3>
+                            </div>
+                            <p class="mb-0">Daily plans stay on target while you swap meals based on taste and local availability.</p>
+                            <div class="step-placeholder mt-3">Placeholder image</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <a href="https://plateai.app/onboard" class="btn btn-primary">Start your journey</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo CTA -->
+        <section class="cta-section py-5 text-center">
+            <div class="container">
+                <h2 class="mb-3">If it&rsquo;s available near you, it&rsquo;s in here.</h2>
+                <p class="mb-4 cta-subtitle">Plans match what you can actually find and afford.</p>
+                <a href="callback.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Book a demo</a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="about-section py-5">
+            <div class="container">
+                <div class="about-content" style="max-width: 1200px;">
+                    <h2 class="mb-4 text-center">FAQ</h2>
+                    <div class="row g-3">
+                        <div class="col-12 col-lg-6">
+                            <div class="accordion faq-accordion text-start" id="faqAccordionLeft">
+                                <div class="accordion-item mb-3">
+                                    <h3 class="accordion-header" id="faqLeftHeadingOne">
+                                        <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqLeftCollapseOne" aria-expanded="true" aria-controls="faqLeftCollapseOne">Who can use Lishe Manager?</button>
+                                    </h3>
+                                    <div id="faqLeftCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqLeftHeadingOne" data-bs-parent="#faqAccordionLeft">
+                                        <div class="accordion-body">
+                                            <p class="mb-0 cta-subtitle">Lishe Manager is for certified nutrition professionals. Professionals are verified before accessing client intake and meal planning tools.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item mb-3">
+                                    <h3 class="accordion-header" id="faqLeftHeadingTwo">
+                                        <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqLeftCollapseTwo" aria-expanded="false" aria-controls="faqLeftCollapseTwo">Can professionals reuse plans and distributions?</button>
+                                    </h3>
+                                    <div id="faqLeftCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqLeftHeadingTwo" data-bs-parent="#faqAccordionLeft">
+                                        <div class="accordion-body">
+                                            <p class="mb-0 cta-subtitle">Yes. You can save reusable distribution structures and master recipes and customize them for new clients without starting from scratch.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item mb-3">
+                                    <h3 class="accordion-header" id="faqLeftHeadingThree">
+                                        <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqLeftCollapseThree" aria-expanded="false" aria-controls="faqLeftCollapseThree">How do clients receive meal plans?</button>
+                                    </h3>
+                                    <div id="faqLeftCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqLeftHeadingThree" data-bs-parent="#faqAccordionLeft">
+                                        <div class="accordion-body">
+                                            <p class="mb-0 cta-subtitle">Clients access plans via the web app and receive reminders through WhatsApp. Mobile app delivery may be added later.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item mb-0">
+                                    <h3 class="accordion-header" id="faqLeftHeadingFour">
+                                        <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqLeftCollapseFour" aria-expanded="false" aria-controls="faqLeftCollapseFour">How do I book a demo?</button>
+                                    </h3>
+                                    <div id="faqLeftCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqLeftHeadingFour" data-bs-parent="#faqAccordionLeft">
+                                        <div class="accordion-body">
+                                            <p class="mb-0 cta-subtitle">Click the &ldquo;Book a demo&rdquo; button on this page to schedule a walkthrough of Lishe Manager features.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                            <div class="accordion faq-accordion text-start" id="faqAccordionRight">
+                                <div class="accordion-item mb-3">
+                                    <h3 class="accordion-header" id="faqRightHeadingOne">
+                                        <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqRightCollapseOne" aria-expanded="false" aria-controls="faqRightCollapseOne">How does Lishe handle clients with NCDs?</button>
+                                    </h3>
+                                    <div id="faqRightCollapseOne" class="accordion-collapse collapse" aria-labelledby="faqRightHeadingOne" data-bs-parent="#faqAccordionRight">
+                                        <div class="accordion-body">
+                                            <p class="mb-0 cta-subtitle">Clients with NCDs are routed through a clinical pathway and advised to consult a certified professional for clinically-approved plans.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item mb-3">
+                                    <h3 class="accordion-header" id="faqRightHeadingTwo">
+                                        <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqRightCollapseTwo" aria-expanded="false" aria-controls="faqRightCollapseTwo">How do meal swaps work?</button>
+                                    </h3>
+                                    <div id="faqRightCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqRightHeadingTwo" data-bs-parent="#faqAccordionRight">
+                                        <div class="accordion-body">
+                                            <p class="mb-0 cta-subtitle">Swaps are designed to preserve daily nutrition targets by staying within the same distribution structure so targets aren&rsquo;t compromised.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item mb-0">
+                                    <h3 class="accordion-header" id="faqRightHeadingThree">
+                                        <button class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqRightCollapseThree" aria-expanded="false" aria-controls="faqRightCollapseThree">Is Lishe Planner available to anyone?</button>
+                                    </h3>
+                                    <div id="faqRightCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqRightHeadingThree" data-bs-parent="#faqAccordionRight">
+                                        <div class="accordion-body">
+                                            <p class="mb-0 cta-subtitle">Yes. Individuals can start with Lishe Planner. Those with NCDs receive guidance to consult a professional.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- How It Works Section -->
-        <section class="how-it-works">
-            <div class="container">
-                <h2 data-translate="how-title">How it works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <i class="fa fa-check-circle step-icon"></i>
-                        <h3 data-translate="step1-title">Select preferred foods</h3>
-                        <p data-translate="step1-desc">Tell us about your food preferences, allergies, and dietary needs through our simple questionnaire.</p>
-                    </div>
-                    <div class="step">
-                        <i class="fa fa-brain step-icon"></i>
-                        <h3 data-translate="step2-title">Get personalized plan</h3>
-                        <p data-translate="step2-desc">Our AI creates a custom meal plan based on your body's needs and local food availability.</p>
-                    </div>
-                    <div class="step">
-                        <i class="fa fa-shopping-cart step-icon"></i>
-                        <h3 data-translate="step3-title">Order planned meals</h3>
-                        <p data-translate="step3-desc">Export your meal plan to MsosiHub for easy ordering with exact measurements and portions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Nutritionist Portal Section -->
-        <section id="nutritionist" class="nutritionist-portal">
-            <div class="container">
-                <div class="portal-hero">
-                    <div class="portal-text">
-                        <h2 class="portal-title" data-translate="portal-title">Empower Your Practice with Technology</h2>
-                        <p class="portal-description" data-translate="portal-description">Join our network of qualified nutritionists and leverage technology to better serve your clients. Monitor adherence, provide timely feedback, and expand your reach through our integrated platform.</p>
-                        <a href="#contact" class="btn btn-primary" data-translate="btn-join-network">Join Our Network</a>
-                    </div>
-                    <div class="hero-image">
-                        <img src="images/hero.png" alt="PlateAI Hero Image" class="hero-img" 
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="hero-icon-fallback" style="display: none;">
-                            <i class="fas fa-utensils" style="font-size: 4rem;"></i>
-                            <p data-translate="hero-alt-text">🍽️ Personalized Nutrition</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portal-benefits">
-                    <div class="benefit-card">
-                        <h4>
-                            <i class="fas fa-users"></i>
-                            <span data-translate="benefit1-title">Client Management Made Easy</span>
-                        </h4>
-                        <p data-translate="benefit1-desc">Manage all your clients in one platform. Create profiles, track progress, and monitor meal plan adherence with real-time data.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h4>
-                            <i class="fas fa-mobile-alt"></i>
-                            <span data-translate="benefit2-title">WhatsApp Integration</span>
-                        </h4>
-                        <p data-translate="benefit2-desc">Clients receive meal reminders and can log their food directly via WhatsApp. Review their submissions and provide feedback instantly.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h4>
-                            <i class="fas fa-chart-line"></i>
-                            <span data-translate="benefit3-title">Data-Driven Insights</span>
-                        </h4>
-                        <p data-translate="benefit3-desc">Access detailed analytics on client adherence, progress tracking, and outcome measurements to make informed decisions.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h4>
-                            <i class="fas fa-network-wired"></i>
-                            <span data-translate="benefit4-title">Expand Your Reach</span>
-                        </h4>
-                        <p data-translate="benefit4-desc">Connect with clients across Tanzania through our platform. Offer remote consultations and build a larger practice.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Restaurant Section -->
-        <section class="restaurant-section">
-            <div class="container">
-                <h2 data-translate="restaurant-title">For Restaurants - Healthy Food as a Service</h2>
-                <p class="restaurant-subtitle" data-translate="restaurant-subtitle">Join our network of food vendors in Dar es Salaam and tap into the growing healthy food market.</p>
-                
-                <div class="restaurant-benefits">
-                    <div class="restaurant-card">
-                        <h4 data-translate="restaurant1-title">No Entry Barriers</h4>
-                        <p data-translate="restaurant1-desc">You don't need specific culinary training. Our guidebooks and tools will allow you to prepare healthy foods using easily available local ingredients and serve exactly as per user needs with our kitchen equipment and guides.</p>
-                    </div>
-                    <div class="restaurant-card">
-                        <h4 data-translate="restaurant2-title">Maximize Your Reach</h4>
-                        <p data-translate="restaurant2-desc">Tap into new market opportunities by serving health-conscious customers. Expand your customer base and increase revenue through our platform.</p>
-                    </div>
-                    <div class="restaurant-card">
-                        <h4 data-translate="restaurant3-title">Dar es Salaam Network</h4>
-                        <p data-translate="restaurant3-desc">Currently accepting food vendors in Dar es Salaam only. Be part of our growing network of trained and equipped vendors committed to healthy eating.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <div class="about-content">
-                    <h2 data-translate="about-title">About PlateAI</h2>
-                    <p class="about-text" data-translate="about-text1">
-                        We are committed to creating a healthy eating ecosystem - empowering Tanzanians to eat healthily through simplified personalized meal plans and easily accessible, affordable planned meals. Leveraging a network of food vendors (trained and equipped in Dar es Salaam), we are committed to expanding our impact to the entire country.
-                    </p>
-                    <p class="about-text" data-translate="about-text2">
-                        At PlateAI, we understand the challenges because we have experienced at some point our relatives and close people facing diet-related issues. This personal connection drives our mission to make healthy eating accessible to everyone.
-                    </p>
-                    
-                    <div class="video-container">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;" data-translate="video-title">Our Story</h3>
-                        <iframe 
-                            class="video-embed"
-                            src="https://www.youtube.com/embed/fJEBAgG0uIU" 
-                            title="Breaking the Wall of Unhealthy Eating Habits - Falling Walls 2023"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                        <div class="video-links">
-                            <a href="https://youtu.be/fJEBAgG0uIU" target="_blank" class="video-link">
-                                <i class="fab fa-youtube"></i> <span data-translate="video-youtube">Watch on YouTube</span>
-                            </a>
-                            <a href="https://apply.falling-walls.com/discover/videos/breaking-the-wall-of-unhealthy-eating-habits/" target="_blank" class="video-link">
-                                <i class="fas fa-external-link-alt"></i> <span data-translate="video-falling-walls">Falling Walls Feature</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <h2 data-translate="cta-title">Ready to start your nutrition journey?</h2>
-                <p data-translate="cta-description">Join thousands of users who've transformed their eating habits with PlateAI</p>
-                <a href="https://plateai.app/onboard" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;" data-translate="btn-get-started-today">Get Started Today</a>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
@@ -1148,48 +1392,45 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>PlateAI</h4>
-                    <p data-translate="footer-description">Personalized nutrition made simple with locally available foods in Tanzania. Join thousands of users transforming their eating habits.</p>
+                    <h4>Product</h4>
+                    <a href="#manager">Lishe Manager</a>
+                    <a href="#planner">Lishe Planner</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="#home">PlateAI</a>
+                    <a href="#contact">Contact</a>
                     <div class="footer-social">
-                        <a href="https://wa.me/255763129056" class="social-link">
+                        <a href="https://wa.me/255763129056" class="social-link" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://www.instagram.com/plateai.app/" class="social-link">
+                        <a href="https://www.instagram.com/plateai.app/" class="social-link" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://x.com/plateai255" class="social-link">
+                        <a href="https://x.com/plateai255" class="social-link" aria-label="X">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4 data-translate="footer-quick-links">Quick Links</h4>
-                    <a href="#home" data-translate="footer-link-home">Home</a>
-                    <a href="https://plateai.app/onboard" data-translate="footer-link-get-started">Get Started</a>
-                    <a href="https://msosi.plateai.app" target="_blank" rel="noopener" data-translate="footer-link-order-meals">Order Meals</a>
-                    <a href="#nutritionist" data-translate="footer-link-nutritionists">For Nutritionists</a>
-                    <a href="#about" data-translate="footer-link-about">About Us</a>
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
                 </div>
                 <div class="footer-section">
-                    <h4 data-translate="footer-professionals">For Professionals</h4>
-                    <a href="#nutritionist" data-translate="footer-link-portal">Nutritionist Portal</a>
-                    <a href="#" onclick="alert('Coming Soon: lishe.plateai.app')" data-translate="footer-link-kids">For Kids</a>
-                    <a href="#contact" data-translate="footer-link-partner">Partner With Us</a>
-                    <a href="#contact" data-translate="footer-link-become-nutritionist">Become a Nutritionist</a>
-                </div>
-                <div class="footer-section">
-                    <h4 data-translate="footer-contact-support">Contact & Support</h4>
-                    <p><strong data-translate="footer-office">Office:</strong> Dar es Salaam, Tanzania</p>
-                    <p><strong data-translate="footer-phone">Phone:</strong> <a href="tel:+255763129056">+255 763 129 056</a></p>
-                    <p><strong data-translate="footer-email">Email:</strong> <a href="mailto:aiplate.tz@gmail.com">aiplate.tz@gmail.com</a></p>
+                    <h4>Contact & Support</h4>
+                    <p><strong>Office:</strong> Dar es Salaam, Tanzania</p>
+                    <p><strong>Phone:</strong> <a href="tel:+255763129056">+255 763 129 056</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:aiplate.tz@gmail.com">aiplate.tz@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-translate="footer-copyright">&copy; 2025 PlateAI. All rights reserved.</p>
+                <p>&copy; 2025 PlateAI. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Mobile menu toggle
         function toggleMenu() {
@@ -1210,8 +1451,12 @@
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (!href || href === '#') {
+                    return;
+                }
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
@@ -1269,3 +1514,5 @@
     </script>
 </body>
 </html>
+
+
