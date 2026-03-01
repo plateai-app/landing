@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request a Callback - PlateAI</title>
+    <title data-translate="callback-page-title">Request a Callback - PlateAI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Favicon -->
-    <link rel="icon" href="https://raw.githubusercontent.com/plateai-app/landing/main/images/favicon-plate.png" type="image/png">
+    <link rel="icon" href="images/favicon-plate.png" type="image/png">
     
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -312,8 +312,8 @@
                 <li><a href="index.html" class="nav-link" data-translate="callback-back">Back to Home</a></li>
                 <li>
                     <div class="language-toggle" style="margin-left: 1rem;">
-                        <button class="lang-btn active" onclick="setLanguage('en', this)">EN</button>
-                        <button class="lang-btn" onclick="setLanguage('sw', this)">SW</button>
+                        <button class="lang-btn active" data-lang="en" onclick="setLanguage('en', this)">EN</button>
+                        <button class="lang-btn" data-lang="sw" onclick="setLanguage('sw', this)">SW</button>
                     </div>
                 </li>
             </ul>
@@ -404,7 +404,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p data-translate="footer-copyright">&copy; 2025 PlateAI. All rights reserved.</p>
+            <p data-translate-html="footer-copyright-html">&copy; 2026 PlateAI. All rights reserved.</p>
         </div>
     </footer>
 
