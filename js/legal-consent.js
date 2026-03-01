@@ -88,7 +88,19 @@
         font-weight: 600;
       }
       .legal-consent__text a:hover { text-decoration: underline; }
-      .legal-consent__button { width: 100%; }
+      .legal-consent__button {
+        width: 100%;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+      .legal-consent__button:focus,
+      .legal-consent__button:focus-visible {
+        outline: none;
+        box-shadow: none;
+      }
       .legal-consent__note {
         margin: 12px 0 0;
         color: #6B6C86;
