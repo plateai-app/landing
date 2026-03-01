@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Lishe by PlateAI</title>
+    <meta name="description" content="Privacy Policy for Lishe by PlateAI, covering how personal and nutrition-related data is collected, used, shared, retained, and protected.">
+    <link rel="icon" href="images/favicon-plate.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Dongle:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1A1B2E;
+            --ink-soft: #4A4B6A;
+            --green: #1D9E6F;
+            --green-light: #E8F7F2;
+            --gold: #F5C842;
+            --cream: #FAFAF7;
+            --white: #FFFFFF;
+            --border: rgba(26,27,46,0.10);
+            --shadow: 0 18px 40px rgba(26,27,46,0.08);
+            --radius: 20px;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --dongle: 'Dongle', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--sans);
+            color: var(--ink);
+            background: var(--cream);
+            line-height: 1.65;
+        }
+        a { color: var(--green); }
+
+        .container {
+            width: min(1120px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .legal-hero {
+            color: #fff;
+        }
+
+        .legal-topbar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-hero-body {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse 60% 50% at 80% 18%, rgba(29,158,111,0.30) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 60% at 18% 82%, rgba(245,200,66,0.10) 0%, transparent 60%),
+                linear-gradient(135deg, #16182A 0%, #1A1B2E 58%, #0F2E31 100%);
+            padding: 42px 0 104px;
+        }
+
+        .legal-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            min-height: 64px;
+            position: relative;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .brand img { height: 38px; width: auto; }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .legal-nav-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--ink);
+            cursor: pointer;
+            box-shadow: 0 10px 26px rgba(26,27,46,0.08);
+        }
+
+        .legal-nav-toggle:focus-visible {
+            outline: 2px solid rgba(29,158,111,0.45);
+            outline-offset: 2px;
+        }
+
+        .legal-nav-toggle__bars {
+            display: grid;
+            gap: 5px;
+        }
+
+        .legal-nav-toggle__bars span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            border-radius: 999px;
+            background: currentColor;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .legal-nav.is-open .legal-nav-toggle__bars span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .legal-nav.is-open .legal-nav-toggle__bars span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .legal-nav.is-open .legal-nav-toggle__bars span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        .btn-secondary {
+            background: rgba(26,27,46,0.03);
+            border-color: rgba(26,27,46,0.12);
+            color: var(--ink);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: var(--dongle);
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 0.78;
+            margin-bottom: 18px;
+        }
+
+        .hero-copy {
+            max-width: 760px;
+            color: rgba(255,255,255,0.82);
+            font-size: 1.05rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .meta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.82);
+            font-size: 0.9rem;
+        }
+
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 28px;
+            margin-top: -72px;
+            padding-bottom: 72px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .legal-aside,
+        .legal-article {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .legal-aside {
+            position: sticky;
+            top: 24px;
+            align-self: start;
+            padding: 24px;
+        }
+
+        .legal-aside h2,
+        .legal-article h2 {
+            font-family: var(--dongle);
+            line-height: 0.8;
+        }
+
+        .legal-aside h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .legal-aside ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .legal-aside a {
+            text-decoration: none;
+            color: var(--ink-soft);
+            font-size: 0.94rem;
+        }
+
+        .legal-aside a:hover {
+            color: var(--green);
+        }
+
+        .legal-note {
+            margin-top: 22px;
+            padding: 16px;
+            border-radius: 16px;
+            background: var(--green-light);
+            color: var(--ink);
+            font-size: 0.92rem;
+        }
+
+        .legal-article {
+            padding: 32px;
+        }
+
+        .legal-section + .legal-section {
+            margin-top: 34px;
+            padding-top: 34px;
+            border-top: 1px solid var(--border);
+        }
+
+        .legal-section h2 {
+            font-size: 2.35rem;
+            margin-bottom: 12px;
+        }
+
+        .legal-section p + p,
+        .legal-section ul + p,
+        .legal-section p + ul {
+            margin-top: 12px;
+        }
+
+        .legal-section ul {
+            padding-left: 20px;
+        }
+
+        .legal-section li + li {
+            margin-top: 8px;
+        }
+
+        .highlight-box {
+            margin-top: 16px;
+            padding: 18px 20px;
+            border-radius: 18px;
+            background: #F7FAF9;
+            border: 1px solid rgba(29,158,111,0.14);
+        }
+
+        .footer {
+            padding: 24px 0 48px;
+            color: var(--ink-soft);
+            text-align: center;
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 900px) {
+            .legal-layout {
+                grid-template-columns: 1fr;
+                margin-top: -40px;
+            }
+
+            .legal-aside {
+                position: static;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .legal-nav-toggle {
+                display: inline-flex;
+                margin-left: auto;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 12px);
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 10px;
+                padding: 12px;
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                box-shadow: var(--shadow);
+                z-index: 2;
+            }
+
+            .legal-nav.is-open .nav-links {
+                display: flex;
+            }
+
+            .nav-links .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                width: min(100% - 32px, 1120px);
+            }
+
+            .legal-article,
+            .legal-aside {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="legal-hero">
+        <div class="legal-topbar">
+            <div class="container">
+                <div class="legal-nav" data-legal-nav>
+                    <a href="index.html" class="brand">
+                        <img src="images/Logo.png" alt="PlateAI logo">
+                    </a>
+                    <button type="button" class="legal-nav-toggle" aria-expanded="false" aria-controls="privacyNavLinks" data-legal-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="legal-nav-toggle__bars" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                    <div class="nav-links" id="privacyNavLinks" data-legal-nav-links>
+                        <a href="terms.html" class="btn btn-secondary">Terms of Use</a>
+                        <a href="index.html" class="btn btn-secondary">Back Home</a>
+                        <a href="https://calendar.app.google/rSno1io9c8B2zY9U7" target="_blank" rel="noopener" class="btn btn-primary">Book a Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="legal-hero-body">
+            <div class="container">
+                <div class="eyebrow">Legal</div>
+                <h1>Privacy Policy</h1>
+                <p class="hero-copy">This Privacy Policy explains how Lishe processes personal and nutrition-related information to deliver meal-planning services for professionals and individuals. Effective March 1, 2026.</p>
+                <div class="hero-meta">
+                    <div class="meta-pill">Health-related data, limited scope</div>
+                    <div class="meta-pill">No sale of user data</div>
+                    <div class="meta-pill">Secure cloud processing</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container legal-layout">
+        <aside class="legal-aside">
+            <h2>On this page</h2>
+            <ul>
+                <li><a href="#overview">1. Overview</a></li>
+                <li><a href="#collect">2. Data we collect</a></li>
+                <li><a href="#health">3. Health data</a></li>
+                <li><a href="#use">4. How we use data</a></li>
+                <li><a href="#sharing">5. Data sharing</a></li>
+                <li><a href="#security">6. Data storage and security</a></li>
+                <li><a href="#retention">7. Data retention</a></li>
+                <li><a href="#rights">8. User rights</a></li>
+                <li><a href="#international">9. International users</a></li>
+            </ul>
+            <div class="legal-note">
+                Lishe is currently focused on Tanzania, but secure cloud processing may occur outside Tanzania.
+            </div>
+        </aside>
+
+        <article class="legal-article">
+            <section class="legal-section" id="overview">
+                <h2>1. Overview</h2>
+                <p>Lishe processes personal and health-related information to deliver personalized meal planning for certified nutrition professionals and individuals. We are committed to protecting user data and using it only for lawful and clearly stated purposes.</p>
+            </section>
+
+            <section class="legal-section" id="collect">
+                <h2>2. Data We Collect</h2>
+                <p><strong>For individuals using Lishe Planner,</strong> we may collect name, phone number, anthropometrics, dietary preferences, allergens, NCD status, and optional location data.</p>
+                <p><strong>For professionals using Lishe Manager,</strong> we may collect name, credentials, contact details, and verification documentation.</p>
+                <p><strong>Automatically collected data</strong> may include browser details, device information, session information, and usage logs.</p>
+            </section>
+
+            <section class="legal-section" id="health">
+                <h2>3. Health Data</h2>
+                <p>Lishe processes limited health-related data such as self-declared conditions and nutrition-related inputs provided by users or professionals acting on behalf of users.</p>
+                <div class="highlight-box">
+                    <p>We do not store hospital records, integrate with national health databases, or share medical data without consent unless required by law.</p>
+                </div>
+            </section>
+
+            <section class="legal-section" id="use">
+                <h2>4. How We Use Data</h2>
+                <p>We use data to:</p>
+                <ul>
+                    <li>Generate meal plans and nutrition guidance.</li>
+                    <li>Improve algorithms and platform quality.</li>
+                    <li>Send reminders, alerts, and operational messages.</li>
+                    <li>Support professionals and respond to platform requests.</li>
+                    <li>Improve performance, reliability, and service delivery.</li>
+                </ul>
+                <p>We do not sell user data.</p>
+            </section>
+
+            <section class="legal-section" id="sharing">
+                <h2>5. Data Sharing</h2>
+                <p>We may share data with certified professionals if a user is routed through Lishe Manager, with service providers supporting hosting or messaging infrastructure, or when disclosure is required by law.</p>
+            </section>
+
+            <section class="legal-section" id="security">
+                <h2>6. Data Storage and Security</h2>
+                <p>We implement secure hosting, encrypted HTTPS connections, and access controls for professional dashboards. However, no system is 100 percent secure, and users should also protect their own devices and credentials.</p>
+            </section>
+
+            <section class="legal-section" id="retention">
+                <h2>7. Data Retention</h2>
+                <p>We retain data while an account is active, for as long as needed to deliver the service, and as required by law or legitimate operational obligations. Users may request deletion by contacting us.</p>
+            </section>
+
+            <section class="legal-section" id="rights">
+                <h2>8. User Rights</h2>
+                <p>You may request correction of inaccurate information, request deletion of your data where applicable, and withdraw consent for marketing communication. Contact <a href="mailto:info@plateai.africa">info@plateai.africa</a> for privacy requests.</p>
+            </section>
+
+            <section class="legal-section" id="international">
+                <h2>9. International Users</h2>
+                <p>Lishe is currently focused on Tanzania. Data may be processed in secure cloud environments outside Tanzania where service infrastructure or support providers operate.</p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">PlateAI legal pages. Last updated March 1, 2026.</div>
+    </footer>
+    <script src="js/legal-nav.js"></script>
+</body>
+</html>

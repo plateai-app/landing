@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="lishe-page-title">Lishe by PlateAI - Nutrition Professionals Platform</title>
-    <meta name="description" content="Lishe helps certified nutrition professionals in Tanzania serve more clients with speed, precision, and clinically-approved meal planning. Built for real life in Africa.">
+    <title data-translate="lishe-page-title">Lishe by PlateAI - Create Clinically-Approved Meal Plans Faster</title>
+    <meta name="description" content="Lishe helps nutrition professionals in Tanzania automate client intake, create clinically-approved meal plans around local foods, and follow up faster.">
     <meta name="keywords" content="nutrition professionals Tanzania, meal planning Africa, clinical nutrition software, dietitian platform, PlateAI, Lishe">
-    <meta property="og:title" content="Lishe by PlateAI - Empowering Nutrition Professionals">
-    <meta property="og:description" content="Faster, more scalable, clinically-approved meal planning for nutrition professionals in Tanzania.">
+    <meta property="og:title" content="Create Clinically-Approved Meal Plans in Minutes | Lishe by PlateAI">
+    <meta property="og:description" content="Automate client intake, build clinically-approved meal plans around local foods, and follow up faster with Lishe Manager.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plateai.africa">
+    <meta property="og:image" content="https://plateai.africa/images/og-image.png">
+    <meta property="og:image:secure_url" content="https://plateai.africa/images/og-image.png">
+    <meta property="og:image:alt" content="Lishe by PlateAI preview">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Create Clinically-Approved Meal Plans in Minutes | Lishe by PlateAI">
+    <meta name="twitter:description" content="Automate client intake, build clinically-approved meal plans around local foods, and follow up faster with Lishe Manager.">
+    <meta name="twitter:image" content="https://plateai.africa/images/og-image.png">
     <link rel="canonical" href="https://plateai.africa">
     <link rel="icon" href="images/favicon-plate.png" type="image/png">
 
@@ -334,6 +340,19 @@
             gap: 12px;
             flex-wrap: wrap;
         }
+        .hero-trust {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+            color: rgba(255,255,255,0.62);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+        .hero-trust i {
+            color: #79ddb1;
+            flex-shrink: 0;
+        }
         .hero-stats {
             display: flex;
             gap: 32px;
@@ -474,9 +493,8 @@
         }
         @media (max-width: 700px) {
             .conditions-grid { grid-template-columns: repeat(2, 1fr); }
-            .conditions-inner { padding: 28px 20px; }
         }
-        @media (max-width: 400px) {
+        @media (max-width: 480px) {
             .conditions-grid { grid-template-columns: 1fr; }
         }
 
@@ -578,6 +596,55 @@
 
         /* ── MANAGER SECTION ── */
         .manager-section { background: var(--white); }
+        .manager-intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 56px;
+        }
+        .manager-intro .section-header {
+            max-width: none;
+            margin-bottom: 0;
+        }
+        .manager-fit {
+            margin: 0;
+            padding: 20px 22px;
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius);
+            background: var(--cream);
+            max-width: none;
+        }
+        .manager-fit-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 14px;
+        }
+        .manager-fit-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 12px;
+        }
+        .manager-fit-list li {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            color: var(--ink);
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+        .manager-fit-list i {
+            color: var(--green);
+            font-size: 0.85rem;
+        }
 
         .how-steps {
             display: grid;
@@ -651,10 +718,30 @@
             padding: 24px;
             border-top: 3px solid var(--green);
         }
-        .benefit-icon {
+        .benefit-icon,
+        .planner-card-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: var(--green-light);
+            border: 1.5px solid rgba(29,158,111,0.18);
             color: var(--green);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+            margin-bottom: 16px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .benefit-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.85;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
         .benefit-title {
             font-family: var(--dongle);
@@ -687,16 +774,8 @@
         }
 
         .planner-card-num {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px; height: 28px;
-            border-radius: 50%;
-            background: var(--green);
-            color: #fff;
-            font-size: 0.75rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            margin-bottom: 12px;
         }
         /* Phone-frame style image container */
         .planner-card-image {
@@ -780,6 +859,34 @@
 
         /* ── FAQ ── */
         .faq-section { background: var(--white); }
+
+        .testimonials-section {
+            background: var(--cream);
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .testimonial-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+        }
+        .testimonial-quote {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+        }
         .faq-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1024,16 +1131,42 @@
                 width: 100%;
                 justify-content: center;
             }
+            .hero-trust {
+                order: 6;
+                width: 100%;
+            }
             .hero-stats { gap: 20px; }
+            .manager-intro {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+            .manager-fit {
+                padding: 18px;
+            }
             .how-steps { grid-template-columns: 1fr; max-width: 420px; }
             .benefit-row { grid-template-columns: 1fr; }
             .planner-steps { grid-template-columns: 1fr; }
             .hiw-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
             .faq-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .cta-strip-inner { flex-direction: column; text-align: center; }
             .section { padding: 64px 0; }
-            .conditions-inner { padding: 28px 24px; }
+            .conditions-inner { padding: 34px 28px; }
+            .condition-card { padding: 24px 18px; }
+        }
+        @media (max-width: 700px) {
+            .conditions-inner { padding: 32px 22px; }
+            .conditions-grid { gap: 14px; }
+            .condition-card { padding: 22px 14px; }
+            .conditions-title { margin-bottom: 24px; }
+            .conditions-sub { margin-top: 12px; }
+        }
+        @media (max-width: 480px) {
+            .conditions-inner { padding: 28px 18px; }
+            .conditions-grid { gap: 12px; }
+            .condition-card { padding: 20px 16px; }
         }
         @media (max-width: 600px) {
             .hero-title { font-size: clamp(2.2rem, 13vw, 3rem); }
@@ -1041,6 +1174,10 @@
             .footer-grid { grid-template-columns: 1fr; }
             .hero-stats { flex-wrap: wrap; gap: 16px; }
             .footer-bottom { flex-direction: column; text-align: center; }
+            .hero-trust { font-size: 0.78rem; }
+            .manager-fit-list { flex-direction: column; }
+            .manager-fit-list i { display: none; }
+            .manager-fit-list li { width: 100%; justify-content: flex-start; }
             .conditions-row { gap: 8px; }
             .condition-chip { font-size: 0.8rem; padding: 6px 12px; }
         }
@@ -1101,11 +1238,9 @@
                     <span data-translate="lishe-hero-badge">Now Onboarding!</span>
                 </div>
                 <h1 class="hero-title" data-translate-html="lishe-hero-title-html">
-                    Empowering<br>
-                    <em>Nutrition</em><br>
-                    Professionals
+                    Create Clinically-Approved <em>Meal Plans</em> in Minutes, Not Hours.
                 </h1>
-                <p class="hero-desc" data-translate="lishe-hero-desc">Faster, more scalable, clinically-approved meal planning - built with foods your clients can actually find in Tanzania.</p>
+                <p class="hero-desc" data-translate="lishe-hero-desc">Onboard clients, generate clinically-approved plans around foods they can actually find in Tanzania, and follow up faster from one workflow.</p>
                 <div class="hero-actions">
                     <a href="https://calendar.app.google/rSno1io9c8B2zY9U7" target="_blank" rel="noopener" class="btn btn-gold btn-lg">
                         <i class="fas fa-calendar-check" aria-hidden="true"></i>
@@ -1114,6 +1249,10 @@
                     <a href="#planner" class="btn btn-ghost-white btn-lg" data-translate="lishe-btn-individual-start">
                         Individual? Start here
                     </a>
+                </div>
+                <div class="hero-trust">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <span data-translate="lishe-hero-trust">No credit card required • Privacy-first demo booking</span>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -1211,10 +1350,20 @@
 <!-- LISHE MANAGER -->
 <section id="manager" class="section manager-section">
     <div class="container">
-        <div class="section-header">
-            <div class="eyebrow" data-translate="lishe-manager-eyebrow">For Nutrition Professionals</div>
-            <h2 class="h-section" style="margin-bottom:16px">Lishe Manager</h2>
-            <p class="text-lead" data-translate="lishe-manager-lead">Serve more clients with speed, precision, and clinically-approved meal distribution. Verified professionals only.</p>
+        <div class="manager-intro">
+            <div class="section-header">
+                <div class="eyebrow" data-translate="lishe-manager-eyebrow">For Nutrition Professionals</div>
+                <h2 class="h-section" style="margin-bottom:16px">Lishe Manager</h2>
+                <p class="text-lead" data-translate="lishe-manager-lead">Serve more clients with automated intake, clinically-approved plan creation, and guided follow-ups. Verified professionals only.</p>
+            </div>
+            <div class="manager-fit">
+                <div class="manager-fit-title" data-translate="lishe-manager-fit-title">Best fit for</div>
+                <ul class="manager-fit-list">
+                    <li><i class="fas fa-check" aria-hidden="true"></i><span data-translate="lishe-manager-fit-1">Dietitians</span></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><span data-translate="lishe-manager-fit-2">Nutritionists</span></li>
+                    <li><i class="fas fa-check" aria-hidden="true"></i><span data-translate="lishe-manager-fit-3">Wellness Coaches</span></li>
+                </ul>
+            </div>
         </div>
 
         <!-- How it works -->
@@ -1238,8 +1387,8 @@
                 </div>
                 <div class="how-card-body">
                     <div class="how-card-num">Step 02</div>
-                    <div class="how-card-title" data-translate="lishe-manager-step-2-title">Client data and risk capture</div>
-                    <p class="text-body" data-translate="lishe-manager-step-2-desc">Collect anthropometrics, preferences, allergens, NCD and risk status - all in one intake form.</p>
+                    <div class="how-card-title" data-translate="lishe-manager-step-2-title">Automated client intake</div>
+                    <p class="text-body" data-translate="lishe-manager-step-2-desc">Collect anthropometrics, preferences, allergens, and NCD risk in one guided form and save roughly 20 minutes of repetitive intake questions per client.</p>
                 </div>
             </div>
             <div class="how-card">
@@ -1270,17 +1419,38 @@
         <h3 class="section-subtitle" data-translate="lishe-manager-why-title">Why professionals choose Lishe</h3>
         <div class="benefit-row reveal">
             <div class="benefit-card">
-                <div class="benefit-icon"><i class="fas fa-gauge-high" aria-hidden="true"></i></div>
+                <div class="benefit-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                        <path d="M4.5 14a7.5 7.5 0 0 1 15 0"></path>
+                        <path d="M12 14l4-4"></path>
+                        <circle cx="12" cy="14" r="1.5" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                </div>
                 <div class="benefit-title" data-translate="lishe-manager-benefit-1-title">Faster plan creation</div>
                 <p class="text-body" data-translate="lishe-manager-benefit-1-desc">Reusable distribution structures and templates mean you create once and scale across every client.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-icon"><i class="fas fa-sliders" aria-hidden="true"></i></div>
+                <div class="benefit-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                        <path d="M5 6h14"></path>
+                        <path d="M5 12h14"></path>
+                        <path d="M5 18h14"></path>
+                        <circle cx="9" cy="6" r="2"></circle>
+                        <circle cx="15" cy="12" r="2"></circle>
+                        <circle cx="11" cy="18" r="2"></circle>
+                    </svg>
+                </div>
                 <div class="benefit-title" data-translate="lishe-manager-benefit-2-title">Total clinical control</div>
                 <p class="text-body" data-translate="lishe-manager-benefit-2-desc">Create recipes matched to local food availability. Customization doesn't slow you down - everything is reusable.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-icon"><i class="fas fa-bell" aria-hidden="true"></i></div>
+                <div class="benefit-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                        <path d="M8 16v-5a4 4 0 0 1 8 0v5"></path>
+                        <path d="M6 16h12"></path>
+                        <path d="M10.5 19a1.5 1.5 0 0 0 3 0"></path>
+                    </svg>
+                </div>
                 <div class="benefit-title" data-translate="lishe-manager-benefit-3-title">Automated follow-ups</div>
                 <p class="text-body" data-translate="lishe-manager-benefit-3-desc">Lishe checks in on your behalf via WhatsApp and SMS - meal reminders, progress logging, and status updates.</p>
             </div>
@@ -1292,6 +1462,26 @@
                 <span data-translate="lishe-btn-book-manager-demo">Book a Manager Demo</span>
             </a>
             <p class="text-body" style="margin:0" data-translate="lishe-manager-demo-support">See client intake, distribution building, and delivery in 15 minutes.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS (hidden until approved customer quotes are available) -->
+<section class="section testimonials-section" hidden aria-hidden="true">
+    <div class="container">
+        <div class="section-header centered">
+            <div class="eyebrow" data-translate="lishe-testimonials-eyebrow">What professionals say</div>
+            <h2 class="h-section" style="margin-bottom:12px" data-translate="lishe-testimonials-title">Results worth quoting</h2>
+        </div>
+        <div class="testimonials-grid">
+            <article class="testimonial-card">
+                <p class="testimonial-quote" data-translate="lishe-testimonial-1-quote">"PlateAI helps me manage 50 clients alone. I used to struggle with 10."</p>
+                <p class="testimonial-role" data-translate="lishe-testimonial-1-role">Nutrition professional, Dar es Salaam</p>
+            </article>
+            <article class="testimonial-card">
+                <p class="testimonial-quote" data-translate="lishe-testimonial-2-quote">"I spend less time rebuilding plans and more time coaching clients through the hard parts."</p>
+                <p class="testimonial-role" data-translate="lishe-testimonial-2-role">Clinical nutritionist, pilot cohort</p>
+            </article>
         </div>
     </div>
 </section>
@@ -1514,8 +1704,8 @@
             <div>
                 <div class="footer-heading" data-translate="lishe-footer-legal">Legal</div>
                 <ul class="footer-links">
-                    <li><a href="#" data-translate="lishe-footer-link-privacy">Privacy Policy</a></li>
-                    <li><a href="#" data-translate="lishe-footer-link-terms">Terms of Use</a></li>
+                    <li><a href="privacy.html" data-translate="lishe-footer-link-privacy">Privacy Policy</a></li>
+                    <li><a href="terms.html" data-translate="lishe-footer-link-terms">Terms of Use</a></li>
                 </ul>
                 <div class="footer-heading" style="margin-top:24px" data-translate="lishe-footer-company">Company</div>
                 <ul class="footer-links">
@@ -1552,7 +1742,20 @@
     </div>
 </footer>
 
+<div class="legal-consent" data-legal-consent hidden aria-hidden="true">
+    <div class="legal-consent__backdrop"></div>
+    <div class="legal-consent__dialog" role="dialog" aria-modal="true" aria-labelledby="legalConsentTitle">
+        <div class="legal-consent__eyebrow" data-translate="lishe-consent-eyebrow">Before you continue</div>
+        <h2 class="legal-consent__title" id="legalConsentTitle" data-translate="lishe-consent-title">Terms and Privacy</h2>
+        <p class="legal-consent__text" data-translate-html="lishe-consent-copy-html">By clicking <strong>Agree and Continue</strong>, you agree to our <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+        <button type="button" class="btn btn-primary legal-consent__button" data-legal-consent-accept>
+            <span data-translate="lishe-consent-accept">I Agree and Continue</span>
+        </button>
+    </div>
+</div>
+
 <script src="js/translations.js"></script>
+<script src="js/legal-consent.js"></script>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // NAV SCROLL
     const nav = document.getElementById('nav');

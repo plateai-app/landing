@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Lishe by PlateAI</title>
+    <link rel="icon" href="images/favicon-plate.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Dongle:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1A1B2E;
+            --gold: #F5C842;
+            --white: #FFFFFF;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --dongle: 'Dongle', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            font-family: var(--sans);
+            color: var(--white);
+            background:
+                radial-gradient(circle at top right, rgba(29,158,111,0.25), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(245,200,66,0.14), transparent 28%),
+                linear-gradient(135deg, #16182A 0%, #1A1B2E 55%, #0F2E31 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .wrap {
+            width: min(100%, 760px);
+            text-align: center;
+            padding: 36px 28px;
+            border-radius: 28px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.10);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: var(--dongle);
+            font-size: clamp(4.5rem, 12vw, 8rem);
+            line-height: 0.78;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2.4rem);
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+
+        p {
+            max-width: 560px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.74);
+            line-height: 1.7;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: var(--white);
+        }
+
+        .tagline {
+            margin-top: 18px;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.56);
+        }
+
+        @media (max-width: 520px) {
+            .wrap {
+                padding: 28px 18px;
+            }
+
+            .actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="eyebrow">404</div>
+        <h1>Page not found.</h1>
+        <h2>The page you're looking for may have moved or no longer exists.</h2>
+        <p>If it's available near you, it's in Lishe. This page just isn't.</p>
+        <div class="actions">
+            <a href="index.html" class="btn btn-primary">Go back home</a>
+            <a href="https://calendar.app.google/rSno1io9c8B2zY9U7" target="_blank" rel="noopener" class="btn btn-secondary">Book a demo</a>
+        </div>
+        <div class="tagline">Lishe by PlateAI</div>
+    </div>
+</body>
+</html>

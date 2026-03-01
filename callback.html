@@ -274,6 +274,25 @@
             opacity: 0.8;
         }
 
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .callback-container {
@@ -303,8 +322,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <!-- Brand Logo C:\plateai-landing\images\Logo.png -->
+            <a href="index.html" class="logo">
                 <img src="images/Logo.png" alt="PlateAI Logo" style="height: 40px; width: auto;">
             </a>
             
@@ -405,8 +423,24 @@
     <footer class="footer">
         <div class="container">
             <p data-translate-html="footer-copyright-html">&copy; 2026 PlateAI. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html" data-translate="lishe-footer-link-privacy">Privacy Policy</a>
+                <a href="terms.html" data-translate="lishe-footer-link-terms">Terms of Use</a>
+            </div>
         </div>
     </footer>
+
+    <div class="legal-consent" data-legal-consent hidden aria-hidden="true">
+        <div class="legal-consent__backdrop"></div>
+        <div class="legal-consent__dialog" role="dialog" aria-modal="true" aria-labelledby="callbackConsentTitle">
+            <div class="legal-consent__eyebrow" data-translate="lishe-consent-eyebrow">Before you continue</div>
+            <h2 class="legal-consent__title" id="callbackConsentTitle" data-translate="lishe-consent-title">Terms and Privacy</h2>
+            <p class="legal-consent__text" data-translate-html="lishe-consent-copy-html">By clicking <strong>Agree and Continue</strong>, you agree to our <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+            <button type="button" class="btn btn-primary legal-consent__button" data-legal-consent-accept>
+                <span data-translate="lishe-consent-accept">I Agree and Continue</span>
+            </button>
+        </div>
+    </div>
 
     <script>
         // Handle callback form submission
@@ -509,5 +543,6 @@ I'd like to request a callback:
             }, 3000);
         }
     </script>
+    <script src="js/legal-consent.js"></script>
 </body>
 </html>

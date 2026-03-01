@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - Lishe by PlateAI</title>
+    <meta name="description" content="Terms of Use for Lishe by PlateAI, covering Lishe Manager, Lishe Planner, platform responsibilities, professional obligations, and Tanzania-first governance.">
+    <link rel="icon" href="images/favicon-plate.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Dongle:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1A1B2E;
+            --ink-soft: #4A4B6A;
+            --green: #1D9E6F;
+            --green-light: #E8F7F2;
+            --gold: #F5C842;
+            --cream: #FAFAF7;
+            --white: #FFFFFF;
+            --border: rgba(26,27,46,0.10);
+            --shadow: 0 18px 40px rgba(26,27,46,0.08);
+            --radius: 20px;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --dongle: 'Dongle', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--sans);
+            color: var(--ink);
+            background: var(--cream);
+            line-height: 1.65;
+        }
+        a { color: var(--green); }
+        img { display: block; max-width: 100%; }
+
+        .container {
+            width: min(1120px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .legal-hero {
+            color: #fff;
+        }
+
+        .legal-topbar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-hero-body {
+            background: linear-gradient(135deg, #16182A 0%, #20254B 55%, #12353A 100%);
+            padding: 42px 0 72px;
+        }
+
+        .legal-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            min-height: 64px;
+            position: relative;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .brand img { height: 38px; width: auto; }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .legal-nav-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--ink);
+            cursor: pointer;
+            box-shadow: 0 10px 26px rgba(26,27,46,0.08);
+        }
+
+        .legal-nav-toggle:focus-visible {
+            outline: 2px solid rgba(29,158,111,0.45);
+            outline-offset: 2px;
+        }
+
+        .legal-nav-toggle__bars {
+            display: grid;
+            gap: 5px;
+        }
+
+        .legal-nav-toggle__bars span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            border-radius: 999px;
+            background: currentColor;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .legal-nav.is-open .legal-nav-toggle__bars span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .legal-nav.is-open .legal-nav-toggle__bars span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .legal-nav.is-open .legal-nav-toggle__bars span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        .btn-secondary {
+            background: rgba(26,27,46,0.03);
+            border-color: rgba(26,27,46,0.12);
+            color: var(--ink);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: var(--dongle);
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 0.78;
+            margin-bottom: 18px;
+        }
+
+        .hero-copy {
+            max-width: 720px;
+            color: rgba(255,255,255,0.78);
+            font-size: 1.05rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .meta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.82);
+            font-size: 0.9rem;
+        }
+
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 28px;
+            margin-top: -40px;
+            padding-bottom: 72px;
+        }
+
+        .legal-aside,
+        .legal-article {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .legal-aside {
+            position: sticky;
+            top: 24px;
+            align-self: start;
+            padding: 24px;
+        }
+
+        .legal-aside h2,
+        .legal-article h2 {
+            font-family: var(--dongle);
+            line-height: 0.8;
+        }
+
+        .legal-aside h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .legal-aside ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .legal-aside a {
+            text-decoration: none;
+            color: var(--ink-soft);
+            font-size: 0.94rem;
+        }
+
+        .legal-aside a:hover {
+            color: var(--green);
+        }
+
+        .legal-note {
+            margin-top: 22px;
+            padding: 16px;
+            border-radius: 16px;
+            background: var(--green-light);
+            color: var(--ink);
+            font-size: 0.92rem;
+        }
+
+        .legal-article {
+            padding: 32px;
+        }
+
+        .legal-section + .legal-section {
+            margin-top: 34px;
+            padding-top: 34px;
+            border-top: 1px solid var(--border);
+        }
+
+        .legal-section h2 {
+            font-size: 2.35rem;
+            margin-bottom: 12px;
+        }
+
+        .legal-section p + p,
+        .legal-section ul + p,
+        .legal-section p + ul {
+            margin-top: 12px;
+        }
+
+        .legal-section ul {
+            padding-left: 20px;
+        }
+
+        .legal-section li + li {
+            margin-top: 8px;
+        }
+
+        .highlight-box {
+            margin-top: 16px;
+            padding: 18px 20px;
+            border-radius: 18px;
+            background: #F7FAF9;
+            border: 1px solid rgba(29,158,111,0.14);
+        }
+
+        .footer {
+            padding: 24px 0 48px;
+            color: var(--ink-soft);
+            text-align: center;
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 900px) {
+            .legal-layout {
+                grid-template-columns: 1fr;
+                margin-top: -28px;
+            }
+
+            .legal-aside {
+                position: static;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .legal-nav-toggle {
+                display: inline-flex;
+                margin-left: auto;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 12px);
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 10px;
+                padding: 12px;
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                box-shadow: var(--shadow);
+                z-index: 2;
+            }
+
+            .legal-nav.is-open .nav-links {
+                display: flex;
+            }
+
+            .nav-links .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                width: min(100% - 32px, 1120px);
+            }
+
+            .legal-article,
+            .legal-aside {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="legal-hero">
+        <div class="legal-topbar">
+            <div class="container">
+                <div class="legal-nav" data-legal-nav>
+                    <a href="index.html" class="brand">
+                        <img src="images/Logo.png" alt="PlateAI logo">
+                    </a>
+                    <button type="button" class="legal-nav-toggle" aria-expanded="false" aria-controls="termsNavLinks" data-legal-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="legal-nav-toggle__bars" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                    <div class="nav-links" id="termsNavLinks" data-legal-nav-links>
+                        <a href="privacy.html" class="btn btn-secondary">Privacy Policy</a>
+                        <a href="index.html" class="btn btn-secondary">Back Home</a>
+                        <a href="https://calendar.app.google/rSno1io9c8B2zY9U7" target="_blank" rel="noopener" class="btn btn-primary">Book a Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="legal-hero-body">
+            <div class="container">
+                <div class="eyebrow">Legal</div>
+                <h1>Terms of Use</h1>
+                <p class="hero-copy">These Terms govern access to the Lishe website, Lishe Manager for certified nutrition professionals, and Lishe Planner for individuals. Effective March 1, 2026.</p>
+                <div class="hero-meta">
+                    <div class="meta-pill">Platform, not medical provider</div>
+                    <div class="meta-pill">Tanzania-first governance</div>
+                    <div class="meta-pill">Applies to professionals and individuals</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container legal-layout">
+        <aside class="legal-aside">
+            <h2>On this page</h2>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#platform-role">2. Platform role</a></li>
+                <li><a href="#eligibility">3. Eligibility</a></li>
+                <li><a href="#responsibilities">4. User responsibilities</a></li>
+                <li><a href="#availability">5. Data and local availability disclaimer</a></li>
+                <li><a href="#payments">6. Payments and access</a></li>
+                <li><a href="#messaging">7. WhatsApp and SMS communication</a></li>
+                <li><a href="#ip">8. Intellectual property</a></li>
+                <li><a href="#liability">9. Limitation of liability</a></li>
+                <li><a href="#law">10. Governing law</a></li>
+                <li><a href="#contact">11. Contact</a></li>
+                <li><a href="#professionals">12. Additional terms for nutrition professionals</a></li>
+            </ul>
+            <div class="legal-note">
+                If you do not agree to these Terms, do not use the platform.
+            </div>
+        </aside>
+
+        <article class="legal-article">
+            <section class="legal-section" id="introduction">
+                <h2>1. Introduction</h2>
+                <p>Lishe by PlateAI ("Lishe", "PlateAI", "we", "us") is a digital nutrition planning platform that supports certified nutrition professionals through Lishe Manager and individuals through Lishe Planner.</p>
+                <p>By accessing or using this website, the Lishe Manager platform, or the Lishe Planner tools, you agree to these Terms of Use. If you do not agree, do not use the platform.</p>
+            </section>
+
+            <section class="legal-section" id="platform-role">
+                <h2>2. Platform Role - Not a Medical Provider</h2>
+                <p>Lishe is a technology platform. Lishe does not provide direct medical diagnosis or treatment, and Lishe does not replace licensed medical care.</p>
+                <p>Individuals with non-communicable diseases (NCDs) are advised to consult a certified professional before relying on any nutrition plan.</p>
+                <div class="highlight-box">
+                    <p><strong>For Lishe Planner users:</strong> the platform provides general nutrition guidance based on user-provided data. It does not constitute individualized medical advice.</p>
+                    <p><strong>For Lishe Manager professionals:</strong> you remain fully responsible for clinical decisions made using the platform.</p>
+                </div>
+            </section>
+
+            <section class="legal-section" id="eligibility">
+                <h2>3. Eligibility</h2>
+                <p><strong>Professionals using Lishe Manager</strong> must be certified nutrition professionals, provide accurate verification information, and maintain valid professional credentials. Lishe may suspend access if verification is incomplete, expired, or misleading.</p>
+                <p><strong>Individuals using Lishe Planner</strong> must be at least 18 years old, or use the platform under the supervision of a parent, guardian, or other legally responsible adult.</p>
+            </section>
+
+            <section class="legal-section" id="responsibilities">
+                <h2>4. User Responsibilities</h2>
+                <p>You agree:</p>
+                <ul>
+                    <li>To provide accurate health and profile information.</li>
+                    <li>Not to misuse the platform or interfere with service availability.</li>
+                    <li>Not to reverse engineer, copy, or replicate the platform without written permission.</li>
+                    <li>Not to upload false credentials or misleading verification documents if you are using Lishe Manager.</li>
+                </ul>
+                <p>Professionals additionally agree that they are solely responsible for clinical decisions, and that Lishe provides tools, not clinical judgments.</p>
+            </section>
+
+            <section class="legal-section" id="availability">
+                <h2>5. Data and Local Availability Disclaimer</h2>
+                <p>Meal plans are generated using user-provided anthropometrics, stated preferences, declared conditions, and locally available food data focused on Tanzania.</p>
+                <p>Lishe does not guarantee exact food availability in every market, ward, or region, and Lishe does not guarantee identical ingredient supply across regions or time periods.</p>
+                <p>Users remain responsible for verifying ingredient suitability for allergies, intolerances, cultural fit, or medical conditions.</p>
+            </section>
+
+            <section class="legal-section" id="payments">
+                <h2>6. Payments and Access</h2>
+                <p>If Lishe introduces paid subscriptions or premium access in the future, fees will be disclosed before billing, payments will be non-refundable unless required by law, and accounts may be suspended for non-payment.</p>
+            </section>
+
+            <section class="legal-section" id="messaging">
+                <h2>7. WhatsApp and SMS Communication</h2>
+                <p>By using Lishe, you consent to receiving reminders, progress nudges, alerts, and operational notifications through WhatsApp or SMS where those channels are available.</p>
+                <p>You may opt out of non-essential messaging where legally permitted, but operational messages may still be required to support delivery of the service.</p>
+            </section>
+
+            <section class="legal-section" id="ip">
+                <h2>8. Intellectual Property</h2>
+                <p>All platform content, including algorithms, distribution structures, templates, interface design, and branding, belongs to PlateAI unless otherwise stated.</p>
+                <p>Nutrition professionals may use generated outputs for client care, but may not resell, sublicense, mirror, or commercially distribute the platform itself.</p>
+            </section>
+
+            <section class="legal-section" id="liability">
+                <h2>9. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, PlateAI shall not be liable for medical outcomes, food reactions, inaccurate user-provided data, professional misuse of the system, or decisions made without appropriate clinical review.</p>
+                <p>Lishe is provided "as is" and "as available".</p>
+            </section>
+
+            <section class="legal-section" id="law">
+                <h2>10. Governing Law</h2>
+                <p>These Terms are governed by the laws of the United Republic of Tanzania.</p>
+            </section>
+
+            <section class="legal-section" id="contact">
+                <h2>11. Contact</h2>
+                <p>For questions about these Terms, contact:</p>
+                <p><a href="mailto:info@plateai.africa">info@plateai.africa</a><br>Dar es Salaam, Tanzania</p>
+            </section>
+
+            <section class="legal-section" id="professionals">
+                <h2>12. Additional Terms for Nutrition Professionals</h2>
+                <p>If you access Lishe Manager as a certified nutrition professional, the following terms also apply:</p>
+                <ul>
+                    <li>You are responsible for verifying the suitability of generated plans before they are delivered to clients.</li>
+                    <li>Lishe provides distribution logic and platform tooling; you remain responsible for clinical approval.</li>
+                    <li>You must not represent Lishe as replacing medical evaluation, examination, or treatment.</li>
+                    <li>You retain independent confidentiality obligations owed to your clients, regardless of your use of Lishe.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">PlateAI legal pages. Last updated March 1, 2026.</div>
+    </footer>
+    <script src="js/legal-nav.js"></script>
+</body>
+</html>
